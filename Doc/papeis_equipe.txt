@@ -1,0 +1,6 @@
+Gerente de projeto - 1 alison
+Analista de sistema - 2 Anderson
+DevOps - 3 fernando
+Analista de requisitos - 4 daniel
+Analista de testes - 5 everton
+Analista de desenvolvimento - 6 joziel 
