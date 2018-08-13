@@ -1,0 +1,12 @@
+Idéia para pesquisa operacional com painel fotovotaicos:
+
+A idéia: Desenvolver um web site, que inserindo as certas informações, efetua calculos e mostra qual a melhor opção de painel fotovotaico para o cliente(a pessoa que inseriu as informações)
+
+
+Idéias de PO nesse tema
+
+* calcular a quantidade de equipamento para completar a área informada, ex: cliente possui 4 metros quadrados de telhado para instalação dos paineis.
+
+* informar o angulo necessário para instalar as placas no telhado do cliente, com base na localização do cliente seguindo os pontos cardeais.
+
+* informar qual o melhor produto com custo beneficio para ajudar o cliente, ex.: calculando a quantidade de maquinas, o teto de capital inicial do cliente,  
