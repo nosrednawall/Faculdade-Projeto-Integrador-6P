@@ -1,6 +1,8 @@
-Gerente de projeto - 1 alison
-Analista de sistema - 2 Anderson
-DevOps - 3 fernando
-Analista de requisitos - 4 daniel
-Analista de testes - 5 everton
-Analista de desenvolvimento - 6 joziel 
+
+
+Gerente de projeto - cara que gerencia- 1 alison
+Analista de sistema - cara que cria os fluxogramas, revisar as outras partes 2 Anderson
+DevOps - cara de infra - 3 fernando
+Analista de requisitos - cara que faz as pesquisas- 4 daniel
+Analista de testes - cara dos testes - 5 everton
+Analista de desenvolvimento - cara que desenvolve - 6 joziel 
