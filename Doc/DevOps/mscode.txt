@@ -1,0 +1,1 @@
+https://docs.microsoft.com/pt-br/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6 

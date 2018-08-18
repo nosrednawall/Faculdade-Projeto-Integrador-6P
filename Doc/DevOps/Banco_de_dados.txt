@@ -1,0 +1,15 @@
+
+Opção 1 
+mysql estável: versão 8.02 , download: https://dev.mysql.com/downloads/mysql/
+
+Opção 2
+mariaDB estável: versão 10.1, download: sudo apt install mariadb-server
+
+Configuração:
+Windows: a definir
+
+Linux: passo1:  Após instalar e gerar senha, crie o database: 
+Terminal:
+mysql -u seu_usuario -p
+create database photongreen;
+use photongreen;
