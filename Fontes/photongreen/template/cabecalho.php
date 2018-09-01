@@ -1,20 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Photon Green</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/photongreeen-index.css" />
-    <script src="js/bootstrap.bundle.js"></script>
-</head>
 
-<body>
-<header class="container">
-    <div class="row">
-        <div class="menu-header">
 
-        </div>
-    </div>
-</header>
+	<nav class="navbar navbar-inverse" style="border-radius: 0; border: solid 0px black;">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>                        
+	      </button>
+	      <a class="navbar-brand" href="#">PHOTONGREEN</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">Home </a></li>
+	        <li><a href="#Empresa">Empresa</a></li>
+	        <li><a href="#">Projetos</a></li>
+	        <li><a href="#">Calcular</a></li>
+	        <li><a href="#">Produtos</a></li>
+	        <li><a href="#Sobre">Sobre</a></li>
+	        <li><a href="#Contato">Contato</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<!-- Header -->
+	<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+		<img class="w3-image" src="imagens/solar1.jpg" alt="Architecture" width="1500" height="800">
+		<div class="w3-display-middle w3-margin-top w3-center">
+			<h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>PG</b></span> <span class="w3-hide-small w3-text-light-grey">Energia</span></h1>
+		</div>
+	</header>
