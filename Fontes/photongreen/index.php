@@ -16,6 +16,11 @@
 	<!-- Page content -->
 	<div class="w3-content w3-padding" style="max-width:1564px">
 
+		<!--Seção calculo  -->
+		<div class="">
+			
+		</div>
+
 		<!-- Project Section -->
 		<div class="w3-container w3-padding-32" id="projects">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projetos</h3>
@@ -89,8 +94,9 @@
 			</div>
 		</div>
 
+
 		<!-- Contact Section -->
-		<div class="w3-container w3-padding-32" id="Contato">
+	 	<div class="w3-container w3-padding-32" id="Contato">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contato</h3>
 			<p>Preencha o formulario a baixo que entraremos em contato.</p>
 			<form action="/action_page.php" target="_blank">
