@@ -1,0 +1,23 @@
+
+https://linuxconfig.org/how-to-install-a-lamp-server-on-debian-9-stretch-linux
+
+MariaDB [(none)]> create user 'anderson'@'localhost' IDENTIFIED BY 'abc';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> grant all privileges on newdb.* to 'anderson'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> create database photongreen;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> grant all privileges on photongreen.* to 'anderson'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> 
+ 

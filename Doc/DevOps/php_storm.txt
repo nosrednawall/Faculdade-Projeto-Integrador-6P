@@ -1,1 +1,0 @@
-https://confluence.jetbrains.com/display/PhpStorm/Instalando+e+configurando+o+XAMPP+com+o+PhpStorm 
