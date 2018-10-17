@@ -15,7 +15,7 @@
 	        <li class="active"><a href="#">Home </a></li>
 	        <li><a href="#Empresa">Empresa</a></li>
 	        <li><a href="#">Projetos</a></li>
-	        <li><a href="#">Calcular</a></li>
+	        <li><a href="/photongreen/calcular.php">Calcular</a></li>
 	        <li><a href="#">Produtos</a></li>
 	        <li><a href="#Sobre">Sobre</a></li>
 	        <li><a href="#Contato">Contato</a></li>
