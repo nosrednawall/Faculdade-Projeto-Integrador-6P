@@ -9,11 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="css/calcular.css"/>
 
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<!-- <script src="js/bootstrap.min.js"></script> -->
 	<script type="text/javascript" src="./js/angular.min.js"></script>
 	<script type="text/javascript" src="./js/jquery.min.js"></script>
 	<script type="text/javascript" src="./js/calculo.js"></script>
-	<script type="text/javascript" src="./js/fraction.js"></script>	
+	<script type="text/javascript" src="./js/simplex-test.js"></script>	
 
 	
 <body ng-controller="myCtrl">
