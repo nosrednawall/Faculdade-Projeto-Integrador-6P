@@ -21,13 +21,19 @@
 
 	<div style="text-align: center;">
 		<div class="titulo">SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</div>
+			<!-- Vai verificar se utilizar a geolocalização ou pelos bairros -->
+			<label for="name" class="descricao">Informe seu estado</label>	
 
-			<label for="name" class="descricao">Informe seu estado</label>	<br>		
-			<select class="campo" ng-model="sgEstado" ng-options="x.model for x in EstadosSG " style="width: 60px"></select><br><br>
+			<br>		
+			<select class="campo" ng-model="sgEstado" ng-options="x.model for x in EstadosSG " style="width: 60px"></select>
+			<br><br>
 			<label for="name" class="descricao">Informe sua cidade</label><br>			
-			<select class="campo" ng-model="nmCidade" ng-options="x.model for x in CidadesEstado | filter:{idEstado:sgEstado.id}" style="width: 250px" enabled="false"></select><br>			
-			<label for="name" class="descricao">Consumo médio mensal kWh/Mês?</label><br>
-			<input class="campo" ng-model="vlGastoMensalKw" style="width: 70px; text-align: center;"><br>
+			<select class="campo" ng-model="nmCidade" ng-options="x.model for x in CidadesEstado | filter:{idEstado:sgEstado.id}" style="width: 250px" enabled="false"></select>
+			<br>			
+			<label for="name" class="descricao">Consumo médio mensal kWh/Mês?</label>
+			<br>
+			<input class="campo" ng-model="vlGastoMensalKw" style="width: 70px; text-align: center;">
+			<br>
 			<button ng-click="EfetuarCalculo()" class="button">Calcular</button>	
 
 			
