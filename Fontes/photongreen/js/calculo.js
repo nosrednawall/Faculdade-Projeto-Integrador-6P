@@ -63,24 +63,25 @@ app.controller('myCtrl', function($scope) {
 			$scope.noPotenciaMaxima = PotenciaMaxima + 'kW';
 			$scope.noPotenciaRecomendada = valorkW + 'kW';
 			$scope.potenciaPlacaRecomendada =  PotenciaPLacaRecomendada + 'kW';
+			$scope.testeA = solver("em minha terra ....");
 
 
 		}
 	}
 	
-	function solver(){
+	function solver($texto){
 
 		$.ajax({
 			type: "POST",
-			url: "seuFicheiro.php",
-			data: {nomeVariavel: 'valor variável',
-			success: function (data) {
-				// aqui pode usar o que o PHP retorna
-			}
+			url: "php/soma.php",
+			data: {resultadoDaSoma: 'valor variável',
+				success: function (data) {
+					// aqui pode usar o que o PHP retorna
+				}
 			}
 		});
 
-		return 123;
+		return $texto+123;
 	}
 	
 	$scope.CarregarDados = function(id){

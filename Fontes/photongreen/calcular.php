@@ -59,6 +59,10 @@
 				<div class="tituloResultado">Recomendação da Placa</div>
 				Potência da placa recomendada: {{potenciaPlacaRecomendada}}<br>
 			</div>	
+			<div class="resultado">
+				<div class="tituloResultado">Recomendação da Placa</div>
+				Potência da placa recomendada: {{testeA}}<br>
+			</div>	
 	</div>
 	
 	<!-- End page content -->
