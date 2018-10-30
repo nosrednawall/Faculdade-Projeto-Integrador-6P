@@ -54,14 +54,34 @@ app.controller('myCtrl', function($scope) {
 			PotenciaMinima = parseFloat(PotenciaMinima).toFixed(2);	
 
 			var PotenciaMaxima = parseFloat(valorkW) + parseFloat(margem);
-			PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);			
+			PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);	
+			
+			//fazer aqui por enquanto
+			var PotenciaPLacaRecomendada = solver();
 
 			$scope.noPotenciaMinima = PotenciaMinima + 'kW';
 			$scope.noPotenciaMaxima = PotenciaMaxima + 'kW';
 			$scope.noPotenciaRecomendada = valorkW + 'kW';
+			$scope.potenciaPlacaRecomendada =  PotenciaPLacaRecomendada + 'kW';
+
+
 		}
 	}
 	
+	function solver(){
+
+		$.ajax({
+			type: "POST",
+			url: "seuFicheiro.php",
+			data: {nomeVariavel: 'valor variável',
+			success: function (data) {
+				// aqui pode usar o que o PHP retorna
+			}
+			}
+		});
+
+		return 123;
+	}
 	
 	$scope.CarregarDados = function(id){
 		$.ajax({
@@ -106,5 +126,6 @@ app.controller('myCtrl', function($scope) {
 					registros.cortes[1].altura + " x " + registros.cortes[1].largura;
 			}
 		});
-	}	
+	}
+
 });

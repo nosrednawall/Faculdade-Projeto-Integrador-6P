@@ -35,6 +35,9 @@
 			<br>
 			<input class="campo" ng-model="vlGastoMensalKw" style="width: 70px; text-align: center;">
 			<br>
+			<label for="area-disponivel" class="descricao">Informe a sua área disponível para instalação das placas</label><br>
+			<input id="area-disponivel" class="campo" ng-model="areaDisponivel" style="width: 70px; text-align: center;">
+			<br>
 			<button ng-click="EfetuarCalculo()" class="button">Calcular</button>	
 
 			
@@ -51,6 +54,10 @@
 				Potência mínima: {{noPotenciaMinima}}<br>
 				Potência máxima: {{noPotenciaMaxima}}<br>
 				Recomendado: {{noPotenciaRecomendada}}<br>
+			</div>
+			<div class="resultado">
+				<div class="tituloResultado">Recomendação da Placa</div>
+				Potência da placa recomendada: {{potenciaPlacaRecomendada}}<br>
 			</div>	
 	</div>
 	
