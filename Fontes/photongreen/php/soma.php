@@ -1,5 +1,5 @@
 <?php 
     function sun(){
-        return 1+1;
+        echo "1+1";
     }
 ?>
