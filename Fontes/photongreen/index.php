@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<title>PhotonGreen</title>
@@ -7,8 +6,6 @@
 	<link rel="stylesheet" href="css/layout.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/photongreen.css">
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
 
 <body>
 	<?php include("template/cabecalho.php"); ?>
@@ -25,12 +22,7 @@
 	</header>
 	
 	<!-- Page content -->
-	<div class="w3-content w3-padding" style="max-width:1564px">
-
-		<!--Seção calculo  -->
-		<div class="">
-			
-		</div>
+	<section class="w3-content w3-padding" style="max-width:1564px">
 
 		<!-- Project Section -->
 		<div class="w3-container w3-padding-32" id="projects">
@@ -122,7 +114,11 @@
 		</div>
 		
 	<!-- End page content -->
-	</div>
+	</section>
+	<!-- scripts java script -->
+	<script src="js/popper.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+
 
 	<?php include("template/rodape.php"); ?>
 

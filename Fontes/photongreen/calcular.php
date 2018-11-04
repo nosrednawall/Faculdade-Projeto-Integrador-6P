@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+<head>
 	<title>Calculo</title>
 	
 	<meta charset="UTF-8">
@@ -8,20 +9,16 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/calcular.css"/>
 
-	<script src="js/jquery.min.js"></script>
-	<!-- <script src="js/bootstrap.min.js"></script> -->
-	<script type="text/javascript" src="./js/angular.min.js"></script>
-	<script type="text/javascript" src="./js/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/calculo.js"></script>
-	<script type="text/javascript" src="./js/simplex-test.js"></script>	
 
+</head>
 	
 <body ng-controller="myCtrl">
 
 	<?php include("template/cabecalho.php"); ?>
 
-	<div style="text-align: center;">
-		<div class="titulo">SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</div>
+	<section style="text-align: center;">
+	
+		<article ><div class="titulo">SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</div>
 			<!-- Vai verificar se utilizar a geolocalização ou pelos bairros -->
 			<label for="name" class="descricao">Informe seu estado</label>	
 
@@ -63,10 +60,14 @@
 				<div class="tituloResultado">Recomendação da Placa</div>
 				Potência da placa recomendada: {{testeA}}<br>
 			</div>	
-	</div>
-	
-	<!-- End page content -->
-	</div>
+		</article>
+	</section>
+	<!-- Scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/angular.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/calculo.js"></script>
+	<script type="text/javascript" src="./js/simplex-test.js"></script>	
 
 	<?php include("template/rodape.php"); ?>
 

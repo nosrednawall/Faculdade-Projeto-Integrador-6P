@@ -9,6 +9,9 @@
 
 <!-- Scripts adicionais -->
 
+<script src="js/bootstrap.min.js"></script>
+
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127321879-2"></script>
 <script>
