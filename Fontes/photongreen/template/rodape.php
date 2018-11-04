@@ -9,15 +9,17 @@
 
 <!-- Scripts adicionais -->
 
-<script src="js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./js/angular.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/calculo.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127321879-2"></script>
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127321879-2"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-127321879-2');
-</script>
+</script> -->
