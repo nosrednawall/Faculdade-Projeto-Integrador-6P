@@ -9,11 +9,11 @@
 	<link rel="stylesheet" type="text/css" href="css/calcular.css"/>
 </head>
 	
-<body ng-controller="myCtrl" class="container-fluid">
+<body ng-controller="myCtrl">
 
 	<?php include("template/cabecalho.php"); ?>
 
-	<section class="row">
+	<section class="row container-fluid" >
 		<div class="col-2 col-sm-2"></div>
 		<article class="col-8 col-sm-8" >
 			
