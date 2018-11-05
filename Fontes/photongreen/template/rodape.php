@@ -9,10 +9,10 @@
 
 <!-- Scripts adicionais -->
 
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/angular.min.js"></script>
-	<script type="text/javascript" src="./js/jquery.min.js"></script>
-	<script type="text/javascript" src="./js/calculo.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/calculo.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127321879-2"></script>

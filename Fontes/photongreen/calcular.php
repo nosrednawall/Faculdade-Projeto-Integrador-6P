@@ -43,6 +43,7 @@
 				<button ng-click="EfetuarCalculo()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Calcular</button>	
 			</form>
 
+
 			<div class="resultado">
 				<div class="tituloResultado">PLACA FOTOVOTAICA</div>
 				Incidência solar da região: {{noIncidencia}}<br>
@@ -56,15 +57,7 @@
 				Potência mínima: {{noPotenciaMinima}}<br>
 				Potência máxima: {{noPotenciaMaxima}}<br>
 				Recomendado: {{noPotenciaRecomendada}}<br>
-			</div>
-			<div class="resultado">
-				<div class="tituloResultado">Recomendação da Placa</div>
-				Potência da placa recomendada: {{potenciaPlacaRecomendada}}<br>
 			</div>	
-			<div class="resultado">
-				<div class="tituloResultado">Recomendação da Placa</div>
-				Potência da placa recomendada: {{testeA}}<br>
-			</div>
 		
 		</article>
 		<div class="col-2 col-sm-2"></div>
