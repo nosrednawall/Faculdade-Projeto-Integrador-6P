@@ -4,9 +4,7 @@
 	<title>Calculo</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/layout.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/calcular.css"/>
+    <?php include("template/css.php"); ?>
 </head>
 	
 <body ng-controller="myCtrl">
@@ -44,20 +42,7 @@
 			</form>
 
 
-			<div class="resultado">
-				<div class="tituloResultado">PLACA FOTOVOTAICA</div>
-				Incidência solar da região: {{noIncidencia}}<br>
-				Comsumo gasto kWh/Dia: {{calculokWh}}<br>
-				Potencia gerado kWp/Dia: {{calculokWp}}<br>
-				Quantidade de placas fotovotaicas: {{qtPaineis}}<br>
-				Potencia do painel: {{noPotenciaPainel}}W
-			</div>		
-			<div class="resultado">
-				<div class="tituloResultado">ESCOLHA DO INVERSOR</div>
-				Potência mínima: {{noPotenciaMinima}}<br>
-				Potência máxima: {{noPotenciaMaxima}}<br>
-				Recomendado: {{noPotenciaRecomendada}}<br>
-			</div>	
+
 		
 		</article>
 		<div class="col-2 col-sm-2"></div>
@@ -73,7 +58,20 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				...
+			<div class="resultado">
+				<div class="tituloResultado">PLACA FOTOVOTAICA</div>
+				Incidência solar da região: {{noIncidencia}}<br>
+				Comsumo gasto kWh/Dia: {{calculokWh}}<br>
+				Potencia gerado kWp/Dia: {{calculokWp}}<br>
+				Quantidade de placas fotovotaicas: {{qtPaineis}}<br>
+				Potencia do painel: {{noPotenciaPainel}}W
+			</div>		
+			<div class="resultado">
+				<div class="tituloResultado">ESCOLHA DO INVERSOR</div>
+				Potência mínima: {{noPotenciaMinima}}<br>
+				Potência máxima: {{noPotenciaMaxima}}<br>
+				Recomendado: {{noPotenciaRecomendada}}<br>
+			</div>	
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
