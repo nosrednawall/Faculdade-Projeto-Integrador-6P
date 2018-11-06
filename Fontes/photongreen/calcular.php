@@ -38,7 +38,8 @@
 					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" >
 				</div>
 
-				<button ng-click="EfetuarCalculo()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Calcular</button>	
+				<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Calcular</button>
+				<input type="reset" value="Limpar dados" class="btn btn-warning btn-lg " >
 			</form>
 		
 		</article>
