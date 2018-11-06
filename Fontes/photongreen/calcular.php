@@ -37,9 +37,11 @@
 					<label for="area-disponivel" class="descricao">Informe a sua área disponível para instalação das placas</label>
 					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" >
 				</div>
-
-				<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Calcular</button>
-				<input type="reset" value="Limpar dados" class="btn btn-warning btn-lg " >
+				<div class="row">
+					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
+					<div class="col col-sm-4 col-xs-12"></div>
+					<input type="reset" value="Limpar" class="btn  btn-default btn-lg col col-sm-4 col-xs-12" >
+				</div>
 			</form>
 		
 		</article>
