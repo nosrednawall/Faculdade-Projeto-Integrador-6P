@@ -40,15 +40,12 @@
 
 				<button ng-click="EfetuarCalculo()" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Calcular</button>	
 			</form>
-
-
-
 		
 		</article>
 		<div class="col-2 col-sm-2"></div>
 	</section><!--/row -->
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 			<div class="modal-header">
