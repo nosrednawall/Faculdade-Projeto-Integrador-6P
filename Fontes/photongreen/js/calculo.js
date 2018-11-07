@@ -65,6 +65,7 @@ app.controller('myCtrl', function($scope) {
 			$scope.potenciaPlacaRecomendada =  PotenciaPLacaRecomendada + 'kW';
 			$scope.testeA = solver("em minha terra ....");
 
+			
 
 		}
 	}

@@ -51,32 +51,32 @@
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-			<div class="resultado">
-				<div class="tituloResultado">PLACA FOTOVOTAICA</div>
-				Incidência solar da região: {{noIncidencia}}<br>
-				Comsumo gasto kWh/Dia: {{calculokWh}}<br>
-				Potencia gerado kWp/Dia: {{calculokWp}}<br>
-				Quantidade de placas fotovotaicas: {{qtPaineis}}<br>
-				Potencia do painel: {{noPotenciaPainel}}W
-			</div>		
-			<div class="resultado">
-				<div class="tituloResultado">ESCOLHA DO INVERSOR</div>
-				Potência mínima: {{noPotenciaMinima}}<br>
-				Potência máxima: {{noPotenciaMaxima}}<br>
-				Recomendado: {{noPotenciaRecomendada}}<br>
-			</div>	
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
+				<div class="modal-header">
+					<h2 class="modal-title" id="exampleModalLabel">Resultado</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="resultado">
+						<h4 class="tituloResultado">Placa Fotovoltaica</h4>
+						<label>Incidência solar da região</label>: {{noIncidencia}}<br>
+						<label>Comsumo gasto kWh/Dia:</label> {{calculokWh}}<br>
+						<label>Potencia gerado kWp/Dia:</label> {{calculokWp}}<br>
+						<label>Quantidade de placas fotovotaicas:</label> {{qtPaineis}}<br>
+						<label>Potencia do painel:</label> {{noPotenciaPainel}}W
+					</div>
+					<hr>		
+					<div class="resultado">
+						<h4 class="tituloResultado">Inversor sugerido</h4>
+						<label>Potência mínima:</label> {{noPotenciaMinima}}<br>
+						<label>Potência máxima:</label> {{noPotenciaMaxima}}<br>
+						<label>Recomendado:</label> {{noPotenciaRecomendada}}<br>
+					</div>	
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+				</div>
 			</div>
 		</div>
 	</div>
