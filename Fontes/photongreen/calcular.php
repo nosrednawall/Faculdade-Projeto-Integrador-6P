@@ -30,12 +30,12 @@
 
 				<div class="form-group">
 					<label for="consumo-informado" class="descricao">Consumo médio mensal kWh/Mês?</label>
-					<input id="consumo-informado" class="form-control" ng-model="vlGastoMensalKw">		
+					<input id="consumo-informado" class="form-control" ng-model="vlGastoMensalKw" pattern="[0-9]+" placeholder="Ex:10">		
 				</div>
 
 				<div class="form-group">
-					<label for="area-disponivel" class="descricao">Informe a sua área disponível para instalação das placas</label>
-					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" >
+					<label for="area-disponivel" class="descricao">Informe a sua área disponível em m² para instalação das placas</label>
+					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" pattern="[0-9]+" placeholder="Ex:10">
 				</div>
 				<div class="row">
 					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
