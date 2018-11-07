@@ -9,7 +9,7 @@
 	
 <body ng-controller="myCtrl">
 
-	<?php include("template/cabecalho.php"); ?>
+	<?php include("template/menu.php"); ?>
 
 	<section class="row container-fluid" >
 		<div class="col-2 col-sm-2"></div>

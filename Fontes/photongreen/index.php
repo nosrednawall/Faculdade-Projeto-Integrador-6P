@@ -9,7 +9,7 @@
 
 <head>
 <body>
-	<?php include("template/cabecalho.php"); ?>
+	<?php include("template/menu.php"); ?>
 	
 		<!-- Header logo da empresa ???-->
 	<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
