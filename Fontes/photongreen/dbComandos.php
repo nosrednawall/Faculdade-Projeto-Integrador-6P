@@ -18,7 +18,7 @@
 		include ('dbConexao.php');
 		$idUF = $_GET['idUF'];
 
-		$sql = "SELECT IDCIDADE, NMCIDADE, IDUF, NOINCIDENCIA FROM CADCIDADES WHERE IDUF = $idUF";
+		$sql = "SELECT DISTINCT dbParana.MUNICIPIO FROM `incidencia_solar_parana` dbParana WHERE 1 ORDER BY MUNICIPIO";
 		
 		$tabela = $conexao->prepare($sql);
 
