@@ -16,7 +16,6 @@
 
 	function sqlSelectCidades() {
 		include ('dbConexao.php');
-		$idUF = $_GET['idUF'];
 
 		$sql = "SELECT DISTINCT dbParana.MUNICIPIO FROM `incidencia_solar_parana` dbParana WHERE 1 ORDER BY MUNICIPIO";
 		

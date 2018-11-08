@@ -17,7 +17,7 @@ app.controller('myCtrl', function($scope) {
 	$scope.CidadesEstado = [
 		{model: "São José dos Pinhais", id: "1", idEstado: "1", incidencia: "4.4"},
 		{model: "Curitiba", 			id: "2", idEstado: "1", incidencia: "5.2"},
-		
+
 	];	
 	// $scope.CidadesEstado = [
 	// 	{model: "São José dos Pinhais", id: "1", idEstado: "1", incidencia: "4.4"},
@@ -36,7 +36,7 @@ app.controller('myCtrl', function($scope) {
 
 	$scope.EfetuarCalculo = function(){ 
 		//alert($scope.vlGastoMensalKw);
-		if ($scope.vlGastoMensalKw == '' || $scope.vlGastoMensalKw == undefined){
+		if ($scope.vlGastoMensalKw == '' && $scope.vlGastoMensalKw == undefined){
 			alert('Falta informar o KW gasto no mês.');			
 		}else{
 			var EficienciaPlaca = 0.80; //83%
