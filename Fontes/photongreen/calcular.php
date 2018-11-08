@@ -72,6 +72,7 @@
 						<label>Potência mínima:</label> {{noPotenciaMinima}}<br>
 						<label>Potência máxima:</label> {{noPotenciaMaxima}}<br>
 						<label>Recomendado:</label> {{noPotenciaRecomendada}}<br>
+						<label>Teste potencia placa recomendada:</label> {{nopotenciaPlacaRecomendada}}<br>
 					</div>	
 				</div>
 				<div class="modal-footer">

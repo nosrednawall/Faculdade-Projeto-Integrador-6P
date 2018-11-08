@@ -1,7 +1,9 @@
 var app = angular.module('myApp', []);
 
-app.controller('myCtrl', function($scope) {		
+app.controller('myCtrl', function($scope,$http) {		
 		
+
+	// estados
 	$scope.EstadosSG = [
 		{model: "PR", id: "1"}
 	];
@@ -14,6 +16,7 @@ app.controller('myCtrl', function($scope) {
 	// 	{model: "CE", id: "6"}
 	// ];
 
+	//cidades
 	$scope.CidadesEstado = [
 		{model: "São José dos Pinhais", id: "1", idEstado: "1", incidencia: "4.4"},
 		{model: "Curitiba", 			id: "2", idEstado: "1", incidencia: "5.2"},
@@ -35,21 +38,32 @@ app.controller('myCtrl', function($scope) {
 	
 
 	$scope.EfetuarCalculo = function(){ 
-		//alert($scope.vlGastoMensalKw);
+		// verifica se os campos foram preenchidos
 		if ($scope.vlGastoMensalKw == '' && $scope.vlGastoMensalKw == undefined){
-			alert('Falta informar o KW gasto no mês.');			
+			alert('Por favor preencha todos os campos.');			
 		}else{
-			var EficienciaPlaca = 0.80; //83%
+			//eficiencia da placa travada em 80%
+			var EficienciaPlaca = 0.80; //80
+			//verifica qual é o valor gasto diário de KWs/h
 			var valorkWh = $scope.vlGastoMensalKw / 30;
 			valorkWh = parseFloat(valorkWh).toFixed(2)
 
+			//identifica a quantidade de KW que a placa deverá atingir
 			var valorkW = (valorkWh) / ($scope.nmCidade.incidencia * EficienciaPlaca);
 			valorkW = parseFloat(valorkW).toFixed(2);
 
+			// ________________________________________________________________________
+
+
+			//começa a ciranda das placas
 			var PotenciaPlaca = 265;
 			var QuantidadePlacas = (valorkW / PotenciaPlaca) * 1000;
 			QuantidadePlacas = parseFloat(QuantidadePlacas).toFixed(1);
 			
+
+			// ________________________________________________________________________
+			// inicia a impressão dos dados no frontend
+
 			$scope.noIncidencia = $scope.nmCidade.incidencia;
 			$scope.calculokWh = valorkWh
 			$scope.calculokWp = valorkW;
@@ -65,32 +79,41 @@ app.controller('myCtrl', function($scope) {
 			PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);	
 			
 			//fazer aqui por enquanto
-			var PotenciaPLacaRecomendada = solver();
+			var PotenciaPLacaRecomendada = solver("haha");
+	
 
 			$scope.noPotenciaMinima = PotenciaMinima + 'kW';
 			$scope.noPotenciaMaxima = PotenciaMaxima + 'kW';
 			$scope.noPotenciaRecomendada = valorkW + 'kW';
-			$scope.potenciaPlacaRecomendada =  PotenciaPLacaRecomendada + 'kW';
-			$scope.testeA = solver("em minha terra ....");
+			$scope.nopotenciaPlacaRecomendada =  PotenciaPLacaRecomendada ;
 
 			
 
 		}
 	}
 	
+
+
+
+
 	function solver($texto){
+		console.log($texto);
 
-		$.ajax({
-			type: "POST",
-			url: "php/soma.php",
-			data: {resultadoDaSoma: 'valor variável',
-				success: function (data) {
-					// aqui pode usar o que o PHP retorna
-				}
+		$http.post('./php/solver.php', {texto:$texto })
+			.then(function (textoDoMundo) {
+				console.log("Entrou no deu certo");
+				console.log(textoDoMundo);
+				return textoDoMundo;
+
+			}, function (erro) {
+				console.log('Esse é o erro de login ' + erro);
+				console.log('Entrou em deu errado')
+
+				$scope.usuario = {};
+				$scope.mensagem = 'Login ou senha inválidos!';
 			}
-		});
+		);
 
-		return $texto+123;
 	}
 	
 	$scope.CarregarDados = function(id){
