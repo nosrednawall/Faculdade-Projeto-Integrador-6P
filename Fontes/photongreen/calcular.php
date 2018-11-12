@@ -41,6 +41,7 @@
 					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
 					<div class="col col-sm-4 col-xs-12"></div>
 					<input type="reset" value="Limpar" class="btn  btn-default btn-lg col col-sm-4 col-xs-12" >
+					<button ng-click="EfetuarTesteCalculo()">Testar</button>
 				</div>
 			</form>
 		

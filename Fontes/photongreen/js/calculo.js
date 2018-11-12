@@ -86,6 +86,7 @@ app.controller('myCtrl', function($scope,$http) {
 			$scope.noPotenciaMaxima = PotenciaMaxima + 'kW';
 			$scope.noPotenciaRecomendada = valorkW + 'kW';
 			$scope.nopotenciaPlacaRecomendada =  PotenciaPLacaRecomendada ;
+			console.log(PotenciaPLacaRecomendada);
 
 			
 
@@ -109,13 +110,15 @@ app.controller('myCtrl', function($scope,$http) {
 				console.log('Esse é o erro de login ' + erro);
 				console.log('Entrou em deu errado')
 
-				$scope.usuario = {};
-				$scope.mensagem = 'Login ou senha inválidos!';
+				// $scope.usuario = {};
+				// $scope.mensagem = 'Login ou senha inválidos!';
 			}
 		);
 
 	}
 	
+	
+
 	$scope.CarregarDados = function(id){
 		$.ajax({
 			type: "POST",
@@ -159,6 +162,25 @@ app.controller('myCtrl', function($scope,$http) {
 					registros.cortes[1].altura + " x " + registros.cortes[1].largura;
 			}
 		});
+	}
+
+
+
+	$scope.EfetuarTesteCalculo = function(id){
+		alert("começou");
+		$url= "./php/solver.php";
+		$http.get($url)
+		.then(function(oDados) {
+			console.log(oDados.data.mensagem);
+			console.log(oDados.data.paineis);
+			console.log(oDados.data.preco);
+			
+			alert(oDados.data.mensagem);
+		}, 
+		function(response) { // optional
+			console.log("Falhou "+response);
+		});
+
 	}
 
 });
