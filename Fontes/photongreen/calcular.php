@@ -1,23 +1,27 @@
 <!DOCTYPE html>
+<!-- inicia o app do angular aqui -->
 <html ng-app="myApp">
 <head>
 	<title>Calculo</title>
 	<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- invoca os arquivos css -->
     <?php include("template/css.php"); ?>
 </head>
-	
+<!-- inicia o controlar dessa página -->	
 <body ng-controller="myCtrl">
-
+	<!-- invoca o menu da página -->
 	<?php include("template/menu.php"); ?>
-
+	<!-- aplica o conceito de linhas e colunas do bootstrap, aqui é inciado uma linha(row), e dentro dessa linha estará 3 colunas, a primeira e a tereira serão colunas em branco, já na segunda estará todo o conteúdo do site; a classe container-fluid é responsável por "esticar" os componentes de forma que preencham toda a coluna -->
 	<section class="row container-fluid" >
+		<!-- atribuido o tamanho 2 para essa coluna, ela sempre será o tamanho 2 que é referente ao tamanho da tela -->
 		<div class="col-2 col-sm-2"></div>
+		<!-- atribuido o tamanho 8 para essa coluna, ela sempre será o tamanho 8 que é referente ao tamanho da tela -->
 		<article class="col-8 col-sm-8" >
 			
 			<h2>SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</h2>
-			<!-- Vai verificar se utilizar a geolocalização ou pelos bairros -->
+			<!-- os atributos que estiverem dentro de ng-model são os nomes das variáveis dentro angular -->
 			<form>
 				<div class="form-group">
 					<label for="estado-escolhido" class="descricao">Informe seu estado</label>			
@@ -38,6 +42,16 @@
 					<label for="area-disponivel" class="descricao">Informe a sua área disponível em m² para instalação das placas</label>
 					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" pattern="[0-9]+" placeholder="Ex:10">
 				</div>
+
+				<div class="form-group">
+					<label for="capital-informado" class="descricao">Estimativa de investimento</label>
+					<div class="input-group">
+						<span class="input-group-addon">R$</span>
+						<input id="capital-informado" class="form-control" ng-model="capitalInformado" pattern="[0-9]+" placeholder="Ex: 14000" >
+						<span class="input-group-addon">,00</span>
+					</div>
+				</div>
+
 				<div class="row">
 					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
 					<div class="col col-sm-4 col-xs-12"></div>
@@ -50,15 +64,13 @@
 		<div class="col-2 col-sm-2"></div>
 	</section><!--/row -->
 
+	<!-- model que é invocado para mostrar a resposta ao clicar em calcular -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-					</button>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h2 class="modal-title" id="exampleModalLabel">Resultado</h2>
-
 				</div>
 				<div class="modal-body">
 					<div class="resultado">
@@ -84,11 +96,7 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Scripts -->
-
-
+	<!-- Scripts invocados -->
 	<?php include("template/rodape.php"); ?>
-
 </body>
 </html>
