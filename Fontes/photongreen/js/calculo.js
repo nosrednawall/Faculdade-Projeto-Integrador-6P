@@ -39,7 +39,7 @@ app.controller('myCtrl', function($scope,$http) {
 
 	$scope.EfetuarCalculo = function(){ 
 		// verifica se os campos foram preenchidos
-		if ($scope.vlGastoMensalKw == '' && $scope.vlGastoMensalKw == undefined){
+		if ($scope.vlGastoMensalKw == '' || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 			alert('Por favor preencha todos os campos.');			
 		}else{
 			//eficiencia da placa travada em 80%
@@ -82,9 +82,9 @@ app.controller('myCtrl', function($scope,$http) {
 			var PotenciaPLacaRecomendada = solver("haha");
 	
 
-			$scope.noPotenciaMinima = PotenciaMinima + 'kW';
-			$scope.noPotenciaMaxima = PotenciaMaxima + 'kW';
-			$scope.noPotenciaRecomendada = valorkW + 'kW';
+			$scope.noPotenciaMinima = PotenciaMinima + ' kW';
+			$scope.noPotenciaMaxima = PotenciaMaxima + ' kW';
+			$scope.noPotenciaRecomendada = valorkW + ' kW';
 			$scope.nopotenciaPlacaRecomendada =  PotenciaPLacaRecomendada ;
 			console.log(PotenciaPLacaRecomendada);
 
@@ -100,20 +100,18 @@ app.controller('myCtrl', function($scope,$http) {
 	function solver($texto){
 		console.log($texto);
 
-		$http.post('./php/solver.php', {texto:$texto })
-			.then(function (textoDoMundo) {
-				console.log("Entrou no deu certo");
-				console.log(textoDoMundo);
-				return textoDoMundo;
-
-			}, function (erro) {
-				console.log('Esse é o erro de login ' + erro);
-				console.log('Entrou em deu errado')
-
-				// $scope.usuario = {};
-				// $scope.mensagem = 'Login ou senha inválidos!';
-			}
-		);
+		$url= "./php/solver.php";
+		$http.get($url)
+		.then(function(oDados) {
+			console.log(oDados.data.mensagem);
+			console.log(oDados.data.paineis);
+			console.log(oDados.data.preco);
+			
+			alert(oDados.data.mensagem);
+		}, 
+		function(response) { // optional
+			console.log("Falhou "+response.data);
+		});
 
 	}
 	
