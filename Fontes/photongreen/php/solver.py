@@ -18,27 +18,27 @@ def main():
   # primeira restricao de preco
   # for param in sys.argv:
   #   print(param)
-  print(sys.argv[2])
+
   restricao1 = solver.Constraint(-solver.infinity(), float(sys.argv[1]))
-  restricao1.SetCoefficient(painel, 690 )
+  restricao1.SetCoefficient(painel, float(sys.argv[2]) )
 
   # Constraint 2: 1.6painel <= areaInformada
-  constraint2 = solver.Constraint(-solver.infinity(), 20) #a area informada deve ser em metros quadrados
-  constraint2.SetCoefficient(painel, 1.6)
+  constraint2 = solver.Constraint(-solver.infinity(), float(sys.argv[3])) #a area informada deve ser em metros quadrados
+  constraint2.SetCoefficient(painel, float(sys.argv[4]))
 
 
   # Constraint 3: painel >= quantidadeDeEnergiaNecessariaParaGerar
-  constraint3 = solver.Constraint(-solver.infinity(),2000)
-  constraint3.SetCoefficient(painel, 250)
+  constraint3 = solver.Constraint(-solver.infinity(),float(sys.argv[5]))
+  constraint3.SetCoefficient(painel, float(sys.argv[6]))
     
   # Objective function: z(MAX) = painel + inversor.
   objective = solver.Objective()
-  objective.SetCoefficient(painel, 690)
+  objective.SetCoefficient(painel, float(sys.argv[2]))
   objective.SetMaximization()
   
   # Solve the system.
   solver.Solve()
-  opt_solution = 690 * painel.solution_value()
+  opt_solution = float(sys.argv[2]) * painel.solution_value()
   print('Number of variables =', solver.NumVariables())
   print('Number of constraints =', solver.NumConstraints())
   # The value of each variable in the solution.
