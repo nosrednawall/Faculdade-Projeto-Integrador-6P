@@ -66,14 +66,4 @@ class PainelSolar{
         $this->expessura = "40";
         $this->preco = "928,75";
     }
-
-    // private function preparaPainelSolar($potencia, $descricao, $altura, $largura, $expessura, $preco){
-    //     $this->potencia = $potencia;
-    //     $this->descricao = $descricao;
-    //     $this->altura = $altura ;
-    //     $this->largura = $largura;
-    //     $this->expessura = $expessura;
-    //     $this->preco = $preco;
-    // }
-
 } ?>
