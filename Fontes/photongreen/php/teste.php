@@ -18,7 +18,7 @@
 // }
 
 $p = 1500;
-$juca = 1222;
+$juca = 1222.15;
 $resultadoEmJson = shell_exec('python solver.py '. $p .' '.$juca);
 echo $resultadoEmJson;
 // $resultado = json_decode($resultadoEmJson);
