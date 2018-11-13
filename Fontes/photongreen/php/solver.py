@@ -18,8 +18,8 @@ def main():
   # primeira restricao de preco
   # for param in sys.argv:
   #   print(param)
-  print(sys.argv[1:])
-  restricao1 = solver.Constraint(-solver.infinity(), 1500)
+  print(sys.argv[2])
+  restricao1 = solver.Constraint(-solver.infinity(), float(sys.argv[1]))
   restricao1.SetCoefficient(painel, 690 )
 
   # Constraint 2: 1.6painel <= areaInformada
