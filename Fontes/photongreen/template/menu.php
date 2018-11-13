@@ -13,12 +13,14 @@
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/">Home </a></li>
-	        <li><a href="#Empresa">Empresa</a></li>
-	        <li><a href="#">Projetos</a></li>
 	        <li><a href="./calcular.php">Calcular</a></li>
-	        <li><a href="#">Produtos</a></li>
 	        <li><a href="#Sobre">Sobre</a></li>
 	        <li><a href="#Contato">Contato</a></li>
+					<!-- Limbo de menus
+	        <li><a href="#">Produtos</a></li>
+	        <li><a href="#Empresa">Empresa</a></li>
+	        <li><a href="#">Projetos</a></li>
+					-->
 	      </ul>
 	    </div>
 	  </div>

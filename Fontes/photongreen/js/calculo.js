@@ -117,55 +117,6 @@ app.controller('myCtrl', function($scope,$http) {
 
 	}
 	
-	
-
-	$scope.CarregarDados = function(id){
-		$.ajax({
-			type: "POST",
-			url: "/corte/tblCidades.php",
-			dataType: "json",
-			error: function (xhr, ajaxOptions, thrownError) {
-				alert('Verificar a linha na conexao: $this->banco->debug = false;' + 
-					'\n\nErro: "'+ xhr.status + '"\nMensagem: " ' + thrownError +'"');
-			},				
-			beforesend: function (){
-				$("#dados").html("Carregando...");
-			},
-			data: {
-				codigo: id
-			},
-			success: function(Dados){
-				obj = JSON.parse(Dados);
-				
-				for (var i = 0; i < obj.records.length; i++) {
-					Qtd = obj.records[0].noQuantidade;	
-					Altura = obj.records[0].noAltura;
-					Largura = obj.records[0].noLargura;
-				
-					for (var qtd = 0; qtd < obj.records[i].noQuantidade; qtd++) {
-						document.getElementById("qtd").value = 1;
-						
-						var altura = parseFloat(obj.records[i].noAltura);	
-						var largura = parseFloat(obj.records[i].noLargura);							
-						
-						document.getElementById("altura").value = altura.toString();
-						document.getElementById("largura").value = largura.toString();
-						//alert("Altura: " + obj.records[i].noAltura + ' - Largura: ' + obj.records[i].noLargura);
-						$scope.CriarCorte2(altura, largura);
-					}
-				}
-				
-				//var canvas = document.getElementById("MinhaChapa");
-				document.getElementById('MinhaChapa').src = 'corte.png';
-				
-				document.getElementById("demo").innerHTML += '<br>' + 
-					registros.cortes[1].altura + " x " + registros.cortes[1].largura;
-			}
-		});
-	}
-
-
-
 	$scope.EfetuarTesteCalculo = function(id){
 		alert("começou");
 		$url= "./php/solver.php";
@@ -178,7 +129,7 @@ app.controller('myCtrl', function($scope,$http) {
 			alert(oDados.data.mensagem);
 		}, 
 		function(response) { // optional
-			console.log("Falhou "+response);
+			console.log("Falhou "+response.data);
 		});
 
 	}

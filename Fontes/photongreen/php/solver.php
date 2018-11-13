@@ -4,6 +4,6 @@
         'paineis' => "60",
         'preco' => "12370.89"
     );
-
+    echo "olamundo";
     echo json_encode($saida);
  ?>
