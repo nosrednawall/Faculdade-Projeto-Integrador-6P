@@ -1,11 +1,12 @@
 <?php
-require_once 'painel-solar.php';
+// require_once 'painel-solar.php';
  
-$painel = new PainelSolar("0");
-echo $painel->potencia;
-echo $painel->descricao;
-echo $painel->altura;
-
+// $painel = new PainelSolar("330");
+// echo $painel->potencia;
+// echo $painel->descricao;
+// echo $painel->altura;
+// echo " ";
+// echo $painel->preco;
 
 // class AcessaPainel{
 //     function imprimeUsuario(){
@@ -16,14 +17,9 @@ echo $painel->altura;
 //     }
 // }
 
-// echo"ola mundo<br>";
-//   $resultadoEmJson = shell_exec('python teste.py');
-//   echo "$resultadoEmJson";
-  
-//   $resultado($resultadoEmJson);
-  
-//   print_r($resultadoEmJson);
-
-
-
+$p = "1500";
+$resultadoEmJson = shell_exec('python solver.py '. $p);
+echo $resultadoEmJson;
+// $resultado = json_decode($resultadoEmJson);
+// echo"$resultado";
 ?> 
