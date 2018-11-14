@@ -62,7 +62,20 @@ app.controller('myCtrl', function($scope,$http) {
 			// restrição 4 inversor: 					???x2 = inteiro
 
 
-
+			function solver(){
+		
+				$url= "./php/solver.php";
+				$http.post($url,{'valorKw':valorkW})
+				.then(function(oDados) {
+					console.log(oDados.data);
+					
+					alert(oDados.data);
+				}, 
+				function(response) { // optional
+					console.log("Falhou "+response.data);
+				});
+		
+			}
 
 
 			//começa a ciranda das placas

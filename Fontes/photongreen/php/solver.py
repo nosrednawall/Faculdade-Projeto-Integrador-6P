@@ -40,6 +40,8 @@ def main():
   
   # Execucao do solver
   solver.Solve()
+
+  # Gerando valores que utilizaremos
   opt_solution = precoPainel * painel.solution_value()
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
@@ -49,8 +51,6 @@ def main():
   print('preço total de paineis =', opt_solution)
   print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
   print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
-
-
 
   #codigos de testes
   # primeira restricao de preco
