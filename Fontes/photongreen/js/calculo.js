@@ -65,18 +65,20 @@ app.controller('myCtrl', function($scope,$http) {
 			function solver(){	
 		
 				$url= "./php/solver.php";
-				$http.post($url,{'valorKw':valorkW})
+				$dadosJson = "{'valorkW': valorkWh}";
+				$http.post($url,$dadosJson)
 				.then(function(resposta) {
+					console.log("deu positivo e imprimiu: ")
 					console.log(resposta.data);
 					
 					alert(resposta.data);
 				}, 
 				function(erro) { // optional
-					console.log("Falhou "+erro.data);
+					console.log("Falhou " + erro.data);
 				});
 		
 			}
-
+			var algo = solver();
 
 			//começa a ciranda das placas
 			var PotenciaPlaca = 265;
@@ -102,14 +104,14 @@ app.controller('myCtrl', function($scope,$http) {
 			PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);	
 			
 			//fazer aqui por enquanto
-			var PotenciaPLacaRecomendada = solver("haha");
+			// var PotenciaPLacaRecomendada = solver("haha");
 	
 
 			$scope.noPotenciaMinima = PotenciaMinima + ' kW';
 			$scope.noPotenciaMaxima = PotenciaMaxima + ' kW';
 			$scope.noPotenciaRecomendada = valorkW + ' kW';
-			$scope.nopotenciaPlacaRecomendada =  PotenciaPLacaRecomendada ;
-			console.log(PotenciaPLacaRecomendada);
+			$scope.nopotenciaPlacaRecomendada =  algo;
+			// console.log(PotenciaPLacaRecomendada);
 
 			
 
@@ -120,23 +122,23 @@ app.controller('myCtrl', function($scope,$http) {
 
 
 
-	function solver($texto){
-		console.log($texto);
+	// function solver($texto){
+	// 	console.log($texto);
 
-		$url= "./php/solver.php";
-		$http.get($url)
-		.then(function(resposta) {
-			console.log(resposta.data.mensagem);
-			console.log(resposta.data.paineis);
-			console.log(resposta.data.preco);
+	// 	$url= "./php/solver.php";
+	// 	$http.get($url)
+	// 	.then(function(resposta) {
+	// 		console.log(resposta.data.mensagem);
+	// 		console.log(resposta.data.paineis);
+	// 		console.log(resposta.data.preco);
 			
-			// alert(resposta.data.mensagem);
-		}, 
-		function(response) { // optional
-			console.log("Falhou "+response.data);
-		});
+	// 		// alert(resposta.data.mensagem);
+	// 	}, 
+	// 	function(response) { // optional
+	// 		console.log("Falhou "+response.data);
+	// 	});
 
-	}
+	// }
 	
 	$scope.EfetuarTesteCalculo = function(id){
 		alert("começou");

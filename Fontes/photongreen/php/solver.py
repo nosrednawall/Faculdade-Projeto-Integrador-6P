@@ -45,9 +45,11 @@ def main():
   opt_solution = precoPainel * painel.solution_value()
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
+  quantidadePaineis = painel.solution_value()
 
   #Envio da solucao para o PHP
-  print('quantidade de paineis = ', painel.solution_value())
+  print('A potencia de painel escolhida foi de :', potenciaPainel)
+  print('quantidade de paineis = ', quantidadePaineis)
   print('preço total de paineis =', opt_solution)
   print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
   print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
