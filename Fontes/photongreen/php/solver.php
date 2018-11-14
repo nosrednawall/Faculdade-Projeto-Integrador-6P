@@ -8,15 +8,12 @@
     $painel330 = new PainelSolar("330");
 
     // recebe as variaveis do javascript
-    $solicitacaoCalculoJson = file_get_contents("php://input");
-    if(isset($solicitacaoCalculoJson) && !empty($solicitacaoCalculoJson))
+    $solicitacaoCalculo = json_decode(file_get_contents("php://input"));
+    if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo))
     {   
-        $solicitacaoCalculo  = json_decode($solicitacaoCalculoJson);
+        // $solicitacaoCalculo  = json_decode($solicitacaoCalculoJson);
 
-        // $valorkW = preg_replace('/[0-9]/+','',$solicitacaoCalculo->valorkW);
-        $valorkW = $solicitacaoCalculo->{'valorkW'};
-        // $valorkW = $solicitacaoCalculo->valorkW;
-        if($valorkW == '') return "erro";
+        $valorkW = $solicitacaoCalculo->valorKw;
 
         $saida = array(
             'potencia' => $valorkW

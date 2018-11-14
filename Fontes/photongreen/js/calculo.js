@@ -26,7 +26,7 @@ app.controller('myCtrl', function($scope,$http) {
 			valorkWh = parseFloat(valorkWh).toFixed(2)
 
 			//identifica a quantidade de KW que a placa deverá atingir
-			var valorkW = (valorkWh) / ($scope.nmCidade.incidencia * EficienciaPlaca);
+			valorkW = (valorkWh) / ($scope.nmCidade.incidencia * EficienciaPlaca);
 			valorkW = parseFloat(valorkW).toFixed(2);
 
 			// ________________________________________________________________________
@@ -61,24 +61,7 @@ app.controller('myCtrl', function($scope,$http) {
 			// restrição 3 espaco: 						???x1 <= espaco informado
 			// restrição 4 inversor: 					???x2 = inteiro
 
-
-			function solver(){	
-		
-				$url= "./php/solver.php";
-				$dadosJson = "{'valorkW': valorkWh}";
-				$http.post($url,$dadosJson)
-				.then(function(resposta) {
-					console.log("deu positivo e imprimiu: ")
-					console.log(resposta.data);
-					
-					alert(resposta.data);
-				}, 
-				function(erro) { // optional
-					console.log("Falhou " + erro.data);
-				});
-		
-			}
-			var algo = solver();
+			var algo = $scope.solver(valorkW);
 
 			//começa a ciranda das placas
 			var PotenciaPlaca = 265;
@@ -118,7 +101,25 @@ app.controller('myCtrl', function($scope,$http) {
 		}
 	}
 	
+	$scope.solver = function(valorkW){
+		alert(valorkW);
+		$http({
+			
+			url:'./php/solver.php',
+			method:'POST',
+			data: {'valorKw': valorkW}
+		})
+		.then(function(resposta) {
+			console.log("deu positivo e imprimiu: ")
+			console.log(resposta.data);
+			
+			alert(resposta.data);
+		}, 
+		function(erro) { // optional
+			console.log("Falhou " + erro.data);
+		});
 
+	}
 
 
 
