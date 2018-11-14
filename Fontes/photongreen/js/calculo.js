@@ -1,7 +1,7 @@
 var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope,$http) {		
-		
+
 	// estados
 	$scope.EstadosSG = [
 		{model: "PR", id: "1"}
@@ -41,7 +41,26 @@ app.controller('myCtrl', function($scope,$http) {
 			// restrição 2 espaco: ???x1 <= espaco informado
 			// restrição 3 inversor: ???x2 = inteiro 
 
-			
+			// x1 = painel1
+			// x2 = painel2
+			// x3 = painel3
+			// x4 = painel4
+
+			// 121
+
+
+			// restrição 1 qtda kwts para ser gerada:	
+
+
+			// x1 = painel
+			// x2 = inversor
+
+			// função objetivo : Z(MAX) = ???x1 + ???x2 + ???x3
+
+			// restrição 2 valor: 						???x1 + ???x2  <= capital informado
+			// restrição 3 espaco: 						???x1 <= espaco informado
+			// restrição 4 inversor: 					???x2 = inteiro
+
 
 
 
@@ -98,7 +117,7 @@ app.controller('myCtrl', function($scope,$http) {
 			console.log(oDados.data.paineis);
 			console.log(oDados.data.preco);
 			
-			alert(oDados.data.mensagem);
+			// alert(oDados.data.mensagem);
 		}, 
 		function(response) { // optional
 			console.log("Falhou "+response.data);
@@ -123,7 +142,6 @@ app.controller('myCtrl', function($scope,$http) {
 
 	}
 
-
 	// $scope.EstadosSG = [
 	// 	{model: "PR", id: "1"},
 	// 	{model: "SC", id: "2"},
@@ -133,7 +151,6 @@ app.controller('myCtrl', function($scope,$http) {
 	// 	{model: "CE", id: "6"}
 	// ];
 
-	// $scope.CidadesEstado = [
 	// 	{model: "São José dos Pinhais", id: "1", idEstado: "1", incidencia: "4.4"},
 	// 	{model: "Curitiba", 			id: "2", idEstado: "1", incidencia: "5.2"},
 	// 	{model: "São Paulo", 			id: "3", idEstado: "3", incidencia: "6"},
@@ -146,8 +163,5 @@ app.controller('myCtrl', function($scope,$http) {
 	// 	{model: "Rio de Janeiro", 		id: "10", idEstado: "5", incidencia: "5.4"},
 	// 	{model: "Fortaleza", 			id: "11", idEstado: "6", incidencia: "5.56"}
 	// ];	
-
-
-
 
 });
