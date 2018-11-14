@@ -1,3 +1,4 @@
+#encoding: utf-8
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
 
@@ -17,17 +18,10 @@ def main():
   restricaoEnergia = float(sys.argv[5])
   potenciaPainel =  float(sys.argv[6])
 
-  # restricaoPreco = 9000
-  # precoPainel = 690
-  # restricaoArea = 40
-  # tamanhoPainel = 2
-  # restricaoEnergia = 20000
-  # potenciaPainel =  330
-
   # cria as variaveis
   painel = solver.NumVar(-solver.infinity(), solver.infinity(), 'painel')
 
-  # Primeira restricao : O preco do painel
+  # Primeira restricao : O preço do painel
   restricao1 = solver.Constraint(-solver.infinity(), restricaoPreco)
   restricao1.SetCoefficient(painel, precoPainel )
 
@@ -47,12 +41,15 @@ def main():
   # Execucao do solver
   solver.Solve()
   opt_solution = precoPainel * painel.solution_value()
+  areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
+  energiaGeradaPeinel = potenciaPainel * painel.solution_value()
 
   #Envio da solucao para o PHP
-  print('painel = ', painel.solution_value())
+  print('quantidade de paineis = ', painel.solution_value())
+  print('preço total de paineis =', opt_solution)
+  print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
+  print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
 
-  # The objective value of the solution.
-  print('Optimal objective value =', opt_solution)
 
 
   #codigos de testes
@@ -63,6 +60,14 @@ def main():
   #imprimir a quantidade de variaveis
   # print('Number of variables =', solver.NumVariables())
   # print('Number of constraints =', solver.NumConstraints())
+
+  #todas as variaveis so que estaticas
+  # restricaoPreco = 9000
+  # precoPainel = 690
+  # restricaoArea = 40
+  # tamanhoPainel = 2
+  # restricaoEnergia = 20000
+  # potenciaPainel =  330
 
 
 if __name__ == '__main__':
