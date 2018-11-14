@@ -8,16 +8,13 @@
     $painel330 = new PainelSolar("330");
 
     // recebe as variaveis do javascript
+    $solicitacaoCalculoJson = file_get_contents("php://input");
+    if(isset($solicitacaoCalculoJson) && !empty($solicitacaoCalculoJson))
+    {   
+        $solicitacaoCalculo  = json_decode($solicitacaoCalculoJson);
 
-    $payload = var_dump(file_get_contents('php://input'));
-    // $payload = json_decode(file_get_contents('php://input'));
-
-    // echo "$payload";
-    // $potenciaEmKwts = $payload->valorkW;
-
-    // echo $potenciaEmKwts;
-    
-
+        
+    }
     //executa os solvers
 
     //verifica qual é o melhor

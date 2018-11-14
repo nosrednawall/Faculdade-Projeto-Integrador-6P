@@ -62,17 +62,17 @@ app.controller('myCtrl', function($scope,$http) {
 			// restrição 4 inversor: 					???x2 = inteiro
 
 
-			function solver(){
+			function solver(){	
 		
 				$url= "./php/solver.php";
 				$http.post($url,{'valorKw':valorkW})
-				.then(function(oDados) {
-					console.log(oDados.data);
+				.then(function(resposta) {
+					console.log(resposta.data);
 					
-					alert(oDados.data);
+					alert(resposta.data);
 				}, 
-				function(response) { // optional
-					console.log("Falhou "+response.data);
+				function(erro) { // optional
+					console.log("Falhou "+erro.data);
 				});
 		
 			}
@@ -125,12 +125,12 @@ app.controller('myCtrl', function($scope,$http) {
 
 		$url= "./php/solver.php";
 		$http.get($url)
-		.then(function(oDados) {
-			console.log(oDados.data.mensagem);
-			console.log(oDados.data.paineis);
-			console.log(oDados.data.preco);
+		.then(function(resposta) {
+			console.log(resposta.data.mensagem);
+			console.log(resposta.data.paineis);
+			console.log(resposta.data.preco);
 			
-			// alert(oDados.data.mensagem);
+			// alert(resposta.data.mensagem);
 		}, 
 		function(response) { // optional
 			console.log("Falhou "+response.data);
@@ -142,12 +142,12 @@ app.controller('myCtrl', function($scope,$http) {
 		alert("começou");
 		$url= "./php/solver.php";
 		$http.get($url)
-		.then(function(oDados) {
-			console.log(oDados.data.mensagem);
-			console.log(oDados.data.paineis);
-			console.log(oDados.data.preco);
+		.then(function(resposta) {
+			console.log(resposta.data.mensagem);
+			console.log(resposta.data.paineis);
+			console.log(resposta.data.preco);
 			
-			alert(oDados.data.mensagem);
+			alert(resposta.data.mensagem);
 		}, 
 		function(response) { // optional
 			console.log("Falhou "+response.data);
