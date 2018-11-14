@@ -1,52 +1,69 @@
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
 
-  # x1 = painel
-  # x2 = inversor
+# Classe responsavel por responder a equacao abaixo
 
 import sys
 
-
 def main():
   # instancia o solver
-  solver = pywraplp.Solver('LinearExample',
-                           pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
-  
-  # cria as variaveis x1,x2,x3,xn
+  solver = pywraplp.Solver('LinearExample', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
+
+  # Atribuindo valores recebidos em variaveis
+  restricaoPreco = float(sys.argv[1])
+  precoPainel = float(sys.argv[2])
+  restricaoArea = float(sys.argv[3])
+  tamanhoPainel = float(sys.argv[4])
+  restricaoEnergia = float(sys.argv[5])
+  potenciaPainel =  float(sys.argv[6])
+
+  # restricaoPreco = 9000
+  # precoPainel = 690
+  # restricaoArea = 40
+  # tamanhoPainel = 2
+  # restricaoEnergia = 20000
+  # potenciaPainel =  330
+
+  # cria as variaveis
   painel = solver.NumVar(-solver.infinity(), solver.infinity(), 'painel')
 
-  # primeira restricao de preco
-  # for param in sys.argv:
-  #   print(param)
+  # Primeira restricao : O preco do painel
+  restricao1 = solver.Constraint(-solver.infinity(), restricaoPreco)
+  restricao1.SetCoefficient(painel, precoPainel )
 
-  restricao1 = solver.Constraint(-solver.infinity(), float(sys.argv[1]))
-  restricao1.SetCoefficient(painel, float(sys.argv[2]) )
+  # Segunda restricao : A Area de instalacao do painel
+  constraint2 = solver.Constraint(-solver.infinity(), restricaoArea)
+  constraint2.SetCoefficient(painel, tamanhoPainel)
 
-  # Constraint 2: 1.6painel <= areaInformada
-  constraint2 = solver.Constraint(-solver.infinity(), float(sys.argv[3])) #a area informada deve ser em metros quadrados
-  constraint2.SetCoefficient(painel, float(sys.argv[4]))
-
-
-  # Constraint 3: painel >= quantidadeDeEnergiaNecessariaParaGerar
-  constraint3 = solver.Constraint(-solver.infinity(),float(sys.argv[5]))
-  constraint3.SetCoefficient(painel, float(sys.argv[6]))
+  # Terceira restricao : Energia a ser alcancada com os paineis
+  constraint3 = solver.Constraint(-solver.infinity(),restricaoEnergia)
+  constraint3.SetCoefficient(painel, potenciaPainel)
     
-  # Objective function: z(MAX) = painel + inversor.
+  # Funcao Objetivo
   objective = solver.Objective()
-  objective.SetCoefficient(painel, float(sys.argv[2]))
+  objective.SetCoefficient(painel, precoPainel)
   objective.SetMaximization()
   
-  # Solve the system.
+  # Execucao do solver
   solver.Solve()
-  opt_solution = float(sys.argv[2]) * painel.solution_value()
-  print('Number of variables =', solver.NumVariables())
-  print('Number of constraints =', solver.NumConstraints())
-  # The value of each variable in the solution.
-  print('Solution:')
+  opt_solution = precoPainel * painel.solution_value()
+
+  #Envio da solucao para o PHP
   print('painel = ', painel.solution_value())
 
   # The objective value of the solution.
   print('Optimal objective value =', opt_solution)
-  
+
+
+  #codigos de testes
+  # primeira restricao de preco
+  # for param in sys.argv:
+  #   print(param)
+
+  #imprimir a quantidade de variaveis
+  # print('Number of variables =', solver.NumVariables())
+  # print('Number of constraints =', solver.NumConstraints())
+
+
 if __name__ == '__main__':
   main()
