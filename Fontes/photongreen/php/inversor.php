@@ -6,59 +6,59 @@ class Inversor{
 
     function Inversor($escolha){
         switch ($escolha) {
-            case '1.0':
+            case '1000':
                 $this->preparaInversonUm();
                 break;
                 
-            case '1.5':
+            case '1500':
                 $this->preparaInversonUmEMeio();
                 break;
             
-            case '2.0':
+            case '2000':
                 $this->preparaInversonDois();
                 break;
                 
-            case '2.5':
+            case '2500':
                 $this->preparaInversonDoisEMeio();
                 break;     
                 
-            case '3.0':
+            case '3000':
                 $this->preparaInversonTres();
                 break;     
                 
-            case '4.0':
+            case '4000':
                 $this->preparaInversonQuatro();
                 break;     
                 
-            case '5.0':
+            case '5000':
                 $this->preparaInversonCinco();
                 break;     
 
-            case '6.0':
+            case '6000':
                 $this->preparaInversonSeis();
                 break;     
 
-            case '8.0':
+            case '8000':
                 $this->preparaInversonOito();
                 break;     
 
-            case '12.5':
+            case '12500':
                 $this->preparaInversonDozeEMeio();
                 break;     
 
-            case '15.0':
+            case '15000':
                 $this->preparaInversonQuinze();
                 break;     
 
-            case '20.0':
+            case '20000':
                 $this->preparaInversonVinte();
                 break;     
 
-            case '100.0':
+            case '100000':
                 $this->preparaInversonCem();
                 break;     
 
-            case '1000.0':
+            case '1000000':
                 $this->preparaInversonMil();
                 break;     
             
@@ -152,6 +152,7 @@ class Inversor{
         $this->preco = "600000";
     }
 
+    // https://www.portalsolar.com.br/o-inversor-solar.html
     // Inversor solar de 1KWp aproximadamente R$ 2.500,00 - R$ 3.000,00
     // Inversor solar de 1.5KWp aproximadamente R$ 3.500,00 – R$4.500,00
     // Inversor solar de 2 KWp aproximadamente R$ 4.000,00 - R$ 5.000,00

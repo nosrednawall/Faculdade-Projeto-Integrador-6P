@@ -43,6 +43,7 @@ def main():
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
   quantidadePaineis = painel.solution_value()
+  inversor = potenciaPainel * quantidadePaineis
 
   # gera o json com o resultado
   jsonString = json.dumps({
@@ -50,7 +51,8 @@ def main():
     "quantidadePaineis":quantidadePaineis,
     "areaUtilizadaPaineis":areaUtilizadaPaineis,
     "energiaGeradaPeinel":energiaGeradaPeinel,
-    "precoTotalPaineis":precoTotalPaineis
+    "precoTotalPaineis":precoTotalPaineis,
+    "inversor": inversor
     })
 
   #Envio da solucao para o PHP

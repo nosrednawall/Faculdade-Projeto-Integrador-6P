@@ -1,5 +1,6 @@
  <?php
     require_once('painel-solar.php');
+    require_once('inversor.php');
 
     //cria as os paineis
     $painel250 = new PainelSolar("250");
@@ -29,14 +30,16 @@
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada);
 
-
-
+        // $inversor = buscaInversorCorreto($resultadoPlaca250->inversor);
+        // $inversor = new Inversor($resultadoPlaca250->inversor);
+        
         //gera o json de retorno para o javascript
         $saida = array(
             '250' => $resultadoPlaca250,
             '270' => $resultadoPlaca270,
             '325' => $resultadoPlaca325,
-            '330' => $resultadoPlaca330
+            '330' => $resultadoPlaca330,
+            'inversor' => $inversor
         );
 
         //envia os dados para o javascript
@@ -54,6 +57,14 @@
         $solucao = shell_exec('python solver-preliminar.py '.$painelEscolhido->preco.' '.$area_informada.' '.
                                 $painelEscolhido->tamanho_painel.' '.$meta_energia.' '.$painelEscolhido->potencia);
         return $solucao;
+    }
+
+    function buscaInversorCorreto($voltagemInversor){
+        $voltagemInversor = $voltagemInversor / 1000;
+        
+        $inversor = new Inversor(round($voltagemInversor, 1));
+
+        return  $inversor;
     }
 
 
