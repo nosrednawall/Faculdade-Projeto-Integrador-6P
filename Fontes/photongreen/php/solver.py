@@ -43,19 +43,22 @@ def main():
   solver.Solve()
 
   # Gerando valores que utilizaremos
-  opt_solution = precoPainel * painel.solution_value()
+  precoTotalPaineis = precoPainel * painel.solution_value()
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
   quantidadePaineis = painel.solution_value()
 
+  # gera o json com o resultado
+  jsonString = json.dumps({
+    "painel":potenciaPainel,
+    "quantidadePaineis":quantidadePaineis,
+    "areaUtilizadaPaineis":areaUtilizadaPaineis,
+    "energiaGeradaPeinel":energiaGeradaPeinel,
+    "precoTotalPaineis":precoTotalPaineis
+    })
+
   #Envio da solucao para o PHP
-  jsonString = json.dumps({"painel":potenciaPainel})
   print(jsonString)
-  # print(':', potenciaPainel)
-  # print('quantidade de paineis = ', quantidadePaineis)
-  # print('preço total de paineis =', opt_solution)
-  # print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
-  # print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
 
   #historico de testes
 
@@ -79,7 +82,7 @@ def main():
   # #Envio da solucao para o PHP
   # print('A potencia de painel escolhida foi de :', potenciaPainel)
   # print('quantidade de paineis = ', quantidadePaineis)
-  # print('preço total de paineis =', opt_solution)
+  # print('preço total de paineis =', precoTotalPaineis)
   # print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
   # print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
 
