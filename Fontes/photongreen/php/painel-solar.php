@@ -47,13 +47,13 @@ class PainelSolar{
         $this->potencia = "325";
         $this->descricao = "Painel solar de 325w";
         $this->tamanho_painel = "1.94";
-        $this->preco = "928,75";
+        $this->preco = "928.75";
     }
 
     private function preparaPainelSolar330(){
         $this->potencia = "330";
         $this->descricao = "Painel solar de 330w";
         $this->tamanho_painel = "1.94";
-        $this->preco = "928,75";
+        $this->preco = "928.75";
     }
 } ?>
