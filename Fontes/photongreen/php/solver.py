@@ -2,9 +2,10 @@
 from __future__ import print_function
 from ortools.linear_solver import pywraplp
 
-# Classe responsavel por responder a equacao abaixo
-
 import sys
+import json
+
+# Classe responsavel por responder a equacao abaixo
 
 def main():
   # instancia o solver
@@ -48,13 +49,16 @@ def main():
   quantidadePaineis = painel.solution_value()
 
   #Envio da solucao para o PHP
-  print('A potencia de painel escolhida foi de :', potenciaPainel)
-  print('quantidade de paineis = ', quantidadePaineis)
-  print('preço total de paineis =', opt_solution)
-  print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
-  print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
+  jsonString = json.dumps({"painel":potenciaPainel})
+  print(jsonString)
+  # print(':', potenciaPainel)
+  # print('quantidade de paineis = ', quantidadePaineis)
+  # print('preço total de paineis =', opt_solution)
+  # print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
+  # print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
 
-  #codigos de testes
+  #historico de testes
+
   # primeira restricao de preco
   # for param in sys.argv:
   #   print(param)
@@ -71,6 +75,13 @@ def main():
   # restricaoEnergia = 20000
   # potenciaPainel =  330
 
+
+  # #Envio da solucao para o PHP
+  # print('A potencia de painel escolhida foi de :', potenciaPainel)
+  # print('quantidade de paineis = ', quantidadePaineis)
+  # print('preço total de paineis =', opt_solution)
+  # print('a área utilizada pelos paineis será de: ', areaUtilizadaPaineis)
+  # print('A energia gerada pelos peines será de: ', energiaGeradaPeinel)
 
 if __name__ == '__main__':
   main()

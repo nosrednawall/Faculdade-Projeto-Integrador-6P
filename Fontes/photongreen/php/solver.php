@@ -29,6 +29,7 @@
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada,$valor_maximo);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada,$valor_maximo);
 
+    
         //gera o json de retorno para o javascript
         $saida = array(
             '250' => $resultadoPlaca250,
