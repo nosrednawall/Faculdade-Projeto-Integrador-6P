@@ -23,11 +23,12 @@
         $area_informada = $solicitacaoCalculo->areaInformada;
         $valor_maximo =$solicitacaoCalculo->valorMaximo;
 
-        //efetua o solver de cada painel
-        $resultadoPlaca250 = resolverSolver($painel250, $meta_energia,$area_informada,$valor_maximo);
-        $resultadoPlaca270 = resolverSolver($painel270, $meta_energia,$area_informada,$valor_maximo);
-        $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada,$valor_maximo);
-        $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada,$valor_maximo);
+        //efetua o solver preliminar de cada painel
+        $resultadoPlaca250 = resolverSolver($painel250, $meta_energia,$area_informada);
+        $resultadoPlaca270 = resolverSolver($painel270, $meta_energia,$area_informada);
+        $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada);
+        $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada);
+
 
 
         //gera o json de retorno para o javascript
@@ -49,8 +50,8 @@
     }
     
     //funcao que efetua o solver enviando os dados para o script em python
-    function resolverSolver($painelEscolhido,$meta_energia,$area_informada,$valor_maximo){
-        $solucao = shell_exec('python solver-preliminar.py '. $valor_maximo .' '.$painelEscolhido->preco.' '.$area_informada.' '.
+    function resolverSolver($painelEscolhido,$meta_energia,$area_informada){
+        $solucao = shell_exec('python solver-preliminar.py '.$painelEscolhido->preco.' '.$area_informada.' '.
                                 $painelEscolhido->tamanho_painel.' '.$meta_energia.' '.$painelEscolhido->potencia);
         return $solucao;
     }

@@ -12,21 +12,25 @@ def main():
   solver = pywraplp.Solver('LinearExample', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
 
   # Atribuindo valores recebidos em variaveis
-
-  precoPainel = float(sys.argv[1])
-  restricaoArea = float(sys.argv[2])
-  tamanhoPainel = float(sys.argv[3])
-  restricaoEnergia = float(sys.argv[4])
-  potenciaPainel =  float(sys.argv[5])
+  restricaoPreco = float(sys.argv[1])
+  precoPainel = float(sys.argv[2])
+  restricaoArea = float(sys.argv[3])
+  tamanhoPainel = float(sys.argv[4])
+  restricaoEnergia = float(sys.argv[5])
+  potenciaPainel =  float(sys.argv[6])
 
   # cria as variaveis
   painel = solver.NumVar(-solver.infinity(), solver.infinity(), 'painel')
 
-  # Primeira restricao : A Area de instalacao do painel
+  # Primeira restricao : O preço do painel
+  restricao1 = solver.Constraint(-solver.infinity(), restricaoPreco)
+  restricao1.SetCoefficient(painel, precoPainel )
+
+  # Segunda restricao : A Area de instalacao do painel
   constraint2 = solver.Constraint(-solver.infinity(), restricaoArea)
   constraint2.SetCoefficient(painel, tamanhoPainel)
 
-  # Segunda restricao : Energia a ser alcancada com os paineis
+  # Terceira restricao : Energia a ser alcancada com os paineis
   constraint3 = solver.Constraint(-solver.infinity(),restricaoEnergia)
   constraint3.SetCoefficient(painel, potenciaPainel)
     
@@ -57,12 +61,6 @@ def main():
   print(jsonString)
 
   #historico de testes
-
-  # restricaoPreco = float(sys.argv[1])
-
-  # # Primeira restricao : O preço do painel
-  # restricao1 = solver.Constraint(-solver.infinity(), restricaoPreco)
-  # restricao1.SetCoefficient(painel, precoPainel )
 
   # primeira restricao de preco
   # for param in sys.argv:
