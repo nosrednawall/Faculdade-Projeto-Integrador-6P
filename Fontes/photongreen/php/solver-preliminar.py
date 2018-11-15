@@ -43,7 +43,7 @@ def main():
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
   quantidadePaineis = painel.solution_value()
-  inversor = potenciaPainel * quantidadePaineis
+  inversor = (potenciaPainel * quantidadePaineis)/1000
 
   # gera o json com o resultado
   jsonString = json.dumps({

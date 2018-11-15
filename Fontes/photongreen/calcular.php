@@ -23,6 +23,7 @@
 			<h2>SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</h2>
 			<!-- os atributos que estiverem dentro de ng-model são os nomes das variáveis dentro angular -->
 			<form>
+				<!-- classe do bootstrap para grupos de formularios label e input -->
 				<div class="form-group">
 					<label for="estado-escolhido" class="descricao">Informe seu estado</label>			
 					<select id="estado-escolhido" class="form-control" ng-model="sgEstado" ng-options="x.model for x in EstadosSG"></select>
@@ -56,7 +57,6 @@
 					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
 					<div class="col col-sm-4 col-xs-12"></div>
 					<input type="reset" value="Limpar" class="btn  btn-default btn-lg col col-sm-4 col-xs-12" >
-					botão para testar ajax <button ng-click="solver()">Testar</button>
 				</div>
 			</form>
 		

@@ -6,61 +6,55 @@ class Inversor{
 
     function Inversor($escolha){
         switch ($escolha) {
-            case '1000':
+
+            case '1.0':
                 $this->preparaInversonUm();
                 break;
                 
-            case '1500':
+            case '1.5':
                 $this->preparaInversonUmEMeio();
                 break;
             
-            case '2000':
+            case '2.0':
                 $this->preparaInversonDois();
                 break;
                 
-            case '2500':
+            case '2.5':
                 $this->preparaInversonDoisEMeio();
                 break;     
                 
-            case '3000':
+            case '3.0':
                 $this->preparaInversonTres();
                 break;     
                 
-            case '4000':
+            case '4.0':
                 $this->preparaInversonQuatro();
                 break;     
                 
-            case '5000':
+            case '5.0':
                 $this->preparaInversonCinco();
                 break;     
-
-            case '6000':
+            case '6.0':
                 $this->preparaInversonSeis();
                 break;     
-
-            case '8000':
+            case '8.0':
                 $this->preparaInversonOito();
                 break;     
-
-            case '12500':
+            case '12.5':
                 $this->preparaInversonDozeEMeio();
                 break;     
-
-            case '15000':
+            case '15.0':
                 $this->preparaInversonQuinze();
                 break;     
-
-            case '20000':
+            case '20.0':
                 $this->preparaInversonVinte();
                 break;     
-
-            case '100000':
+            case '100.0':
                 $this->preparaInversonCem();
                 break;     
-
-            case '1000000':
+            case '1000.0':
                 $this->preparaInversonMil();
-                break;     
+                break;        
             
             default:
                 $this->ppreparaInversonUm();
