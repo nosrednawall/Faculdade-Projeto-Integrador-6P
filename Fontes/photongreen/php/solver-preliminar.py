@@ -23,12 +23,17 @@ def main():
   painel = solver.NumVar(-solver.infinity(), solver.infinity(), 'painel')
 
   # Primeira restricao : A Area de instalacao do painel
-  constraint2 = solver.Constraint(-solver.infinity(), restricaoArea)
-  constraint2.SetCoefficient(painel, tamanhoPainel)
+  constraint1 = solver.Constraint(-solver.infinity(), restricaoArea)
+  constraint1.SetCoefficient(painel, tamanhoPainel)
 
   # Segunda restricao : Energia a ser alcancada com os paineis
-  constraint3 = solver.Constraint(-solver.infinity(),restricaoEnergia)
-  constraint3.SetCoefficient(painel, potenciaPainel)
+  constraint2 = solver.Constraint(-solver.infinity(),restricaoEnergia)
+  constraint2.SetCoefficient(painel, potenciaPainel)
+
+  # Buguei1
+  # # Terceira restricao: Maior que 0
+  # constraint3 = solver.Constraint(0,solver.infinity())
+  # constraint3.SetCoefficient(restricaoArea,1)
     
   # Funcao Objetivo
   objective = solver.Objective()

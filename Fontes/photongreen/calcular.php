@@ -31,24 +31,24 @@
 
 				<div class="form-group">
 					<label for="cidade-escolhida" class="descricao">Informe sua cidade</label>
-					<select id="cidade-escolhida" class="form-control" ng-model="nmCidade" ng-options="x.model for x in CidadesEstado | filter:{idEstado:sgEstado.id}" enabled="false"></select>		
+					<select id="cidade-escolhida" class="form-control" ng-model="nmCidade" ng-options="x.model for x in CidadesEstado | filter:{idEstado:ssgEstado.id}" enabled="false"></select>		
 				</div>
 
 				<div class="form-group">
 					<label for="consumo-informado" class="descricao">Consumo médio mensal kWh/Mês?</label>
-					<input id="consumo-informado" class="form-control" ng-model="vlGastoMensalKw" pattern="[0-9]+" placeholder="Ex:10">		
+					<input id="consumo-informado" class="form-control" ng-model="vlGastoMensalKw" pattern="[0-9]+" placeholder="Ex:10" autocomplete="off">		
 				</div>
 
 				<div class="form-group">
 					<label for="area-disponivel" class="descricao">Informe a sua área disponível em m² para instalação das placas</label>
-					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" pattern="[0-9]+" placeholder="Ex:10">
+					<input id="area-disponivel" class="form-control" ng-model="areaDisponivel" pattern="[0-9]+" placeholder="Ex:10" autocomplete="off">
 				</div>
 
 				<div class="form-group">
 					<label for="capital-informado" class="descricao">Estimativa de investimento</label>
 					<div class="input-group">
 						<span class="input-group-addon">R$</span>
-						<input id="capital-informado" class="form-control" ng-model="capitalInformado" pattern="[0-9]+" placeholder="Ex: 14000" >
+						<input id="capital-informado" class="form-control" ng-model="capitalInformado" pattern="[0-9]+" placeholder="Ex: 14000" autocomplete="off" >
 						<span class="input-group-addon">,00</span>
 					</div>
 				</div>

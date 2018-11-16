@@ -88,8 +88,6 @@ app.controller('myCtrl', function($scope,$http) {
 		.then(function(resposta) {
 			console.log("deu positivo e imprimiu: ")
 			console.log(resposta.data);
-			
-			alert(resposta.data);
 		}, 
 		function(erro) { // optional
 			console.log("Falhou " + erro.data);
@@ -99,22 +97,22 @@ app.controller('myCtrl', function($scope,$http) {
 
 
 
-	$scope.EfetuarTesteCalculo = function(id){
-		alert("começou");
-		$url= "./php/solver.php";
-		$http.get($url)
-		.then(function(resposta) {
-			console.log(resposta.data.mensagem);
-			console.log(resposta.data.paineis);
-			console.log(resposta.data.preco);
+	// $scope.EfetuarTesteCalculo = function(id){
+	// 	alert("começou");
+	// 	$url= "./php/solver.php";
+	// 	$http.get($url)
+	// 	.then(function(resposta) {
+	// 		console.log(resposta.data.mensagem);
+	// 		console.log(resposta.data.paineis);
+	// 		console.log(resposta.data.preco);
 			
-			alert(resposta.data.mensagem);
-		}, 
-		function(response) { // optional
-			console.log("Falhou "+response.data);
-		});
+	// 		alert(resposta.data.mensagem);
+	// 	}, 
+	// 	function(response) { // optional
+	// 		console.log("Falhou "+response.data);
+	// 	});
 
-	}
+	// }
 
 	// $scope.EstadosSG = [
 	// 	{model: "PR", id: "1"},
