@@ -30,6 +30,11 @@
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada);
 
+        echo $resultadoPlaca250;
+        echo $resultadoPlaca270;
+        echo $resultadoPlaca325;
+        echo $resultadoPlaca330;
+
         //gera o inversor necessário
         $inversor = new Inversor($resultadoPlaca250->inversor);
 

@@ -13,6 +13,7 @@ def main():
     #adicionado + 25% a restricao de energia para o resulta não der placas muito abaixo do necessário
     restricaoEnergia = float(sys.argv[4]) + (float(sys.argv[4]) * 0.25)
     potenciaPainel =  float(sys.argv[5])
+    
     RunAllIntegerExampleNaturalLanguageAPI()
     RunAllIntegerExampleCppStyleAPI()
 

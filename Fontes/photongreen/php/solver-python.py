@@ -52,11 +52,11 @@ def main():
     # gera o json com o resultado
     jsonString = json.dumps({
       "painel":potenciaPainel,
-      "precoUnitarioPainel": precoPainel,
       "quantidadePaineis":quantidadePaineis,
+      "precoUnitarioPainel": precoPainel,
+      "precoTotalPaineis":precoTotalPaineis,
       "areaUtilizadaPaineis":areaUtilizadaPaineis,
       "energiaGeradaPeinel":energiaGeradaPeinel,
-      "precoTotalPaineis":precoTotalPaineis,
       "inversorMinimo": inversorMinimo,
       "inversorMaximo": inversorMaximo,
       "inversorRecomendado": inversorRecomendado
