@@ -55,7 +55,7 @@
     
     //funcao que efetua o solver enviando os dados para o script em python
     function resolverSolver($painelEscolhido,$meta_energia,$area_informada){
-        $solucao = shell_exec('python solver-preliminar.py '.$painelEscolhido->preco.' '.$area_informada.' '.
+        $solucao = shell_exec('python solver-python.py '.$painelEscolhido->preco.' '.$area_informada.' '.
                                 $painelEscolhido->tamanho_painel.' '.$meta_energia.' '.$painelEscolhido->potencia);
         return $solucao;
     }

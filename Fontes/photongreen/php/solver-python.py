@@ -48,16 +48,22 @@ def main():
   areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
   energiaGeradaPeinel = potenciaPainel * painel.solution_value()
   quantidadePaineis = painel.solution_value()
-  inversor = (potenciaPainel * quantidadePaineis)/1000
+  inversorMinimo = (restricaoEnergia * 0.20) - restricaoEnergia
+  inversorMaximo = (restricaoEnergia * 0.20) + restricaoEnergia
+  inversorRecomendado = restricaoEnergia
+
 
   # gera o json com o resultado
   jsonString = json.dumps({
     "painel":potenciaPainel,
+    "precoUnitarioPainel": precoPainel,
     "quantidadePaineis":quantidadePaineis,
     "areaUtilizadaPaineis":areaUtilizadaPaineis,
     "energiaGeradaPeinel":energiaGeradaPeinel,
     "precoTotalPaineis":precoTotalPaineis,
-    "inversor": inversor
+    "inversorMinimo": inversorMinimo,
+    "inversorMaximo": inversorMaximo,
+    "inversorRecomendado": inversorRecomendado
     })
 
   #Envio da solucao para o PHP
