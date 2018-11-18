@@ -9,20 +9,20 @@
     $painel330 = new PainelSolar("330");
 
     //cria as variaveis que serão utilizadas para guardar as constantes enviadas pelo usuário
-    $valor_maximo = '';
-    $area_informada = '';
-    $meta_energia = '';
+    $valor_maximo = '200000';
+    $area_informada = '200';
+    $meta_energia = '20000';
 
     // recebe as variaveis do javascript
     $solicitacaoCalculo = json_decode(file_get_contents("php://input"));
 
-    //verifica se a solicitacao não está vazia
-    if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo))
-    {   
-        //atribui as variaveis os valores informados pelo usuário
-        $meta_energia = $solicitacaoCalculo->valorKw;
-        $area_informada = $solicitacaoCalculo->areaInformada;
-        $valor_maximo =$solicitacaoCalculo->valorMaximo;
+    // //verifica se a solicitacao não está vazia
+    // if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo))
+    // {   
+    //     //atribui as variaveis os valores informados pelo usuário
+    //     $meta_energia = $solicitacaoCalculo->valorKw;
+    //     $area_informada = $solicitacaoCalculo->areaInformada;
+    //     $valor_maximo =$solicitacaoCalculo->valorMaximo;
 
         //efetua o solver preliminar de cada painel
         $resultadoPlaca250 = resolverSolver($painel250, $meta_energia,$area_informada);
@@ -45,13 +45,13 @@
         //envia os dados para o javascript
         echo json_encode($saida);
 
-    }else{
-        //caso dê erro envia json informando o erro
-        $saida = array(
-            'erro' => "Nao conseguiu ler a variavel"
-        );
-        echo json_encode($saida);
-    }
+    // }else{
+    //     //caso dê erro envia json informando o erro
+    //     $saida = array(
+    //         'erro' => "Nao conseguiu ler a variavel"
+    //     );
+    //     echo json_encode($saida);
+    // }
     
     //funcao que efetua o solver enviando os dados para o script em python
     function resolverSolver($painelEscolhido,$meta_energia,$area_informada){
