@@ -74,12 +74,12 @@
 				</div>
 				<div class="modal-body">
 					<div class="resultado">
-						<h4 class="tituloResultado">Placa Fotovoltaica</h4>
-						<label>Incidência solar da região</label>: {{noIncidencia}}<br>
-						<label>Comsumo gasto kWh/Dia:</label> {{calculokWh}}<br>
-						<label>Potencia gerado kWp/Dia:</label> {{calculokWp}}<br>
-						<label>Quantidade de placas fotovotaicas:</label> {{qtPaineis}}<br>
-						<label>Potencia do painel:</label> {{noPotenciaPainel}}W
+						<h4 class="tituloResultado">Placa Fotovoltaica sugerida</h4>
+						<label>Potência</label> POTENCIA PAINEL<br>
+						<label>Quantidade</label> {{qtPaineis}}<br>
+						<label>Area de instalação necessária</label> ÁREA DE INSTALACAO<br>
+						<label>Preço unitário estimado</label> PREÇO UNITARIO PAINEL<br>
+						<label>Preço total estimado</label> PREÇO TOTAL PAINEIS<br>
 					</div>
 					<hr>		
 					<div class="resultado">
@@ -87,7 +87,13 @@
 						<label>Potência mínima:</label> {{noPotenciaMinima}}<br>
 						<label>Potência máxima:</label> {{noPotenciaMaxima}}<br>
 						<label>Recomendado:</label> {{noPotenciaRecomendada}}<br>
-						<label>Teste potencia placa recomendada:</label> {{nopotenciaPlacaRecomendada}}<br>
+						<label>Quantidade Recomendada</label> {{nopotenciaPlacaRecomendada}}<br>
+						<label>Preço unitario estimado</label> {{nopotenciaPlacaRecomendada}}<br>
+						<label>Preço total estimado</label> {{nopotenciaPlacaRecomendada}}<br>
+					</div>
+					<hr>
+					<div class="resultado">
+						<h4 class="tituloResultado">Total investimento: {{TOTAL_INVESTIMENTO}}</h4>
 					</div>	
 				</div>
 				<div class="modal-footer">
