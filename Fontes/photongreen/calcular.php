@@ -49,7 +49,7 @@
 					<div class="input-group">
 						<span class="input-group-addon">R$</span>
 						<input id="capital-informado" class="form-control" ng-model="capitalInformado" pattern="[0-9]+" placeholder="Ex: 14000" autocomplete="off" >
-						<span class="input-group-addon">,00</span>
+						<!-- <span class="input-group-addon">,00</span> -->
 					</div>
 				</div>
 
@@ -75,25 +75,25 @@
 				<div class="modal-body">
 					<div class="resultado">
 						<h4 class="tituloResultado">Placa Fotovoltaica sugerida</h4>
-						<label>Potência</label> POTENCIA PAINEL<br>
-						<label>Quantidade</label> {{qtPaineis}}<br>
-						<label>Area de instalação necessária</label> ÁREA DE INSTALACAO<br>
-						<label>Preço unitário estimado</label> PREÇO UNITARIO PAINEL<br>
-						<label>Preço total estimado</label> PREÇO TOTAL PAINEIS<br>
+						<label>Potência</label> {{resposta.painel.placaPotencia}}<br>
+						<label>Quantidade</label> {{resposta.painel.placaQuantidade}}<br>
+						<label>Area de instalação necessária</label> {{resposta.painel.placaArea}}<br>
+						<label>Preço unitário estimado</label> {{resposta.placaPrecoUnitario}}<br>
+						<label>Preço total estimado</label> {{resposta.placaPrecoTotal}}<br>
 					</div>
 					<hr>		
 					<div class="resultado">
 						<h4 class="tituloResultado">Inversor sugerido</h4>
-						<label>Potência mínima:</label> {{noPotenciaMinima}}<br>
-						<label>Potência máxima:</label> {{noPotenciaMaxima}}<br>
-						<label>Recomendado:</label> {{noPotenciaRecomendada}}<br>
-						<label>Quantidade Recomendada</label> {{nopotenciaPlacaRecomendada}}<br>
-						<label>Preço unitario estimado</label> {{nopotenciaPlacaRecomendada}}<br>
-						<label>Preço total estimado</label> {{nopotenciaPlacaRecomendada}}<br>
+						<label>Potência mínima:</label> {{resposta.inversorMinimo}}<br>
+						<label>Potência máxima:</label> {{resposta.inversorMaximo}}<br>
+						<label>Potência Recomendado:</label> {{resposta.inversorRecomendado}}<br>
+						<label>Quantidade Recomendada</label> {{resposta.inversorQuantidade}}<br>
+						<label>Preço unitario estimado</label> {{resposta.inversorUnitario}}<br>
+						<label>Preço total estimado</label> {{resposta.inversorTotal}}<br>
 					</div>
 					<hr>
 					<div class="resultado">
-						<h4 class="tituloResultado">Total investimento: {{TOTAL_INVESTIMENTO}}</h4>
+						<h4 class="tituloResultado">Total investimento: {{resposta.investimentoTotal}}</h4>
 					</div>	
 				</div>
 				<div class="modal-footer">

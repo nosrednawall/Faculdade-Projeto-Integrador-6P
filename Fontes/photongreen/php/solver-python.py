@@ -51,16 +51,16 @@ def main():
 
     # gera o json com o resultado
     jsonString = json.dumps({
-      "painel":potenciaPainel,
-      "quantidadePaineis":quantidadePaineis,
-      "precoUnitarioPainel": precoPainel,
-      "precoTotalPaineis":precoTotalPaineis,
-      "areaUtilizadaPaineis":areaUtilizadaPaineis,
-      "energiaGeradaPeinel":energiaGeradaPeinel,
+      "placaPotencia":potenciaPainel,
+      "placaQuantidade":quantidadePaineis,
+      "placaArea":areaUtilizadaPaineis,
+      "placaPrecoUnitario": precoPainel,
+      "placaPrecoTotal":precoTotalPaineis,
+      "placaEnergiaGerada":energiaGeradaPeinel,
       "inversorMinimo": inversorMinimo,
       "inversorMaximo": inversorMaximo,
       "inversorRecomendado": inversorRecomendado
-      })
+    })
 
     #Envio da solucao para o PHP
     print(jsonString)

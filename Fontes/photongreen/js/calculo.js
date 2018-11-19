@@ -19,77 +19,44 @@ app.controller('myCtrl', function($scope,$http) {
 		if ($scope.vlGastoMensalKw == '' || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 
 			alert('Por favor preencha todos os campos.');
-						
-		}else{
-			//eficiencia da placa travada em 80%
-			var EficienciaPlaca = 0.80; //80
-			//verifica qual é o valor gasto diário de KWs/h
-			var metaEnergiaKwh = $scope.vlGastoMensalKw / 30;
-			metaEnergiaKwh = parseFloat(metaEnergiaKwh).toFixed(2)
 
-			//identifica a quantidade de KW que a placa deverá atingir
-			var valorkW = (metaEnergiaKwh) / ($scope.nmCidade.incidencia * EficienciaPlaca);
+		}else{
+			//parte 1: preparando os dados
+
+			//eficiencia em 80%
+			var EficienciaPlaca = 0.80;
+			
+			//consumo diario em kwtsh
+			var valorkW = $scope.vlGastoMensalKw / 30;
 			valorkW = parseFloat(valorkW).toFixed(2);
 
 			//area informada ou disponivel
 			var areaInformada = $scope.areaDisponivel;
 			areaInformada = parseFloat(areaInformada).toFixed(2);
 
+			//valor maximo de capital
 			var valorMaximo = $scope.capitalInformado;
 			valorMaximo = parseFloat(valorMaximo).toFixed(2);
 
 			// ________________________________________________________________________
 
-			var solver = $scope.solver(valorkW,areaInformada,valorMaximo);
-
-			//começa a ciranda das placas
-			var PotenciaPlaca = 265;
-			var QuantidadePlacas = (valorkW / PotenciaPlaca) * 1000;
-			QuantidadePlacas = parseFloat(QuantidadePlacas).toFixed(1);
-			
-
-			// ________________________________________________________________________
-			// inicia a impressão dos dados no frontend
-
-			$scope.noIncidencia = $scope.nmCidade.incidencia;
-			$scope.calculokWh = metaEnergiaKwh
-			$scope.calculokWp = valorkW;
-			$scope.qtPaineis = QuantidadePlacas;
-			$scope.noPotenciaPainel = PotenciaPlaca;
-
-			var margem = (valorkW * 20) / 100;
-
-			var PotenciaMinima = parseFloat(valorkW) - parseFloat(margem);
-			PotenciaMinima = parseFloat(PotenciaMinima).toFixed(2);	
-
-			var PotenciaMaxima = parseFloat(valorkW) + parseFloat(margem);
-			PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);	
-			
-			//fazer aqui por enquanto
-			// var PotenciaPLacaRecomendada = solver("haha");
-	
-
-			$scope.noPotenciaMinima = PotenciaMinima + ' kW';
-			$scope.noPotenciaMaxima = PotenciaMaxima + ' kW';
-			$scope.noPotenciaRecomendada = valorkW + ' kW';
-			$scope.nopotenciaPlacaRecomendada =  solver;
-			// console.log(PotenciaPLacaRecomendada);
-
-			
+			//efetua o solver e imprime na tela
+			$scope.Solver(valorkW,areaInformada,valorMaximo);
 
 		}
 	}
 	
-	$scope.solver = function(valorkW,areaInformada,valorMaximo){
+	$scope.Solver = function(valorkW,areaInformada,valorMaximo){
 		$http({
 			
 			url:'./php/solver.php',
 			method:'POST',
 			data: {'valorKw': valorkW,'areaInformada':areaInformada,'valorMaximo':valorMaximo}
 		})
-		.then(function(resposta) {
+		.then(function(response) {
 			console.log("deu positivo e imprimiu: ")
-			console.log(resposta.data);
+			console.log(response.data)
+			$scope.resposta =  response.data;
 		}, 
 		function(erro) { // optional
 			console.log("Falhou " + erro.data);
@@ -188,5 +155,47 @@ app.controller('myCtrl', function($scope,$http) {
 	// 	});
 
 	// }
+
+
+			// 	// console.log(respostaJson);
+
+			// //começa a ciranda das placas
+			// var PotenciaPlaca = 265;
+			// var QuantidadePlacas = (valorkW / PotenciaPlaca) * 1000;
+			// QuantidadePlacas = parseFloat(QuantidadePlacas).toFixed(1);
+			
+
+			// // ________________________________________________________________________
+			// // inicia a impressão dos dados no frontend
+
+			// $scope.noIncidencia = $scope.nmCidade.incidencia;
+			// $scope.calculokWh = metaEnergiaKwh
+			// $scope.calculokWp = valorkW;
+			// $scope.qtPaineis = QuantidadePlacas;
+			// $scope.noPotenciaPainel = PotenciaPlaca;
+
+			// var margem = (valorkW * 20) / 100;
+
+			// var PotenciaMinima = parseFloat(valorkW) - parseFloat(margem);
+			// PotenciaMinima = parseFloat(PotenciaMinima).toFixed(2);	
+
+			// var PotenciaMaxima = parseFloat(valorkW) + parseFloat(margem);
+			// PotenciaMaxima = parseFloat(PotenciaMaxima).toFixed(2);	
+			
+			// //fazer aqui por enquanto
+			// // var PotenciaPLacaRecomendada = solver("haha");
+	
+
+			// $scope.noPotenciaMinima = PotenciaMinima + ' kW';
+			// $scope.noPotenciaMaxima = PotenciaMaxima + ' kW';
+			// $scope.noPotenciaRecomendada = valorkW + ' kW';
+			// // $scope.nopotenciaPlacaRecomendada =  solver;
+			// // console.log(PotenciaPLacaRecomendada);
+
+			
+
+			// //identifica a quantidade de KW que a placa deverá atingir
+			// var valorkW = (metaEnergiaKwh) / ($scope.nmCidade.incidencia * EficienciaPlaca);
+			// valorkW = parseFloat(valorkW).toFixed(2);
 	
 });

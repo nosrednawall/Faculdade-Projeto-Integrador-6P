@@ -9,20 +9,20 @@
     $painel330 = new PainelSolar("330");
 
     //cria as variaveis que serão utilizadas para guardar as constantes enviadas pelo usuário
-    $valor_maximo = '200000';
-    $area_informada = '200';
-    $meta_energia = '8800.12121121122121';
+    $valor_maximo = '';
+    $area_informada = '';
+    $meta_energia = '';
 
     // recebe as variaveis do javascript
     $solicitacaoCalculo = json_decode(file_get_contents("php://input"));
 
-    // //verifica se a solicitacao não está vazia
-    // if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo))
-    // {   
-    //     //atribui as variaveis os valores informados pelo usuário
-    //     $meta_energia = $solicitacaoCalculo->valorKw;
-    //     $area_informada = $solicitacaoCalculo->areaInformada;
-    //     $valor_maximo =$solicitacaoCalculo->valorMaximo;
+    //verifica se a solicitacao não está vazia
+    if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo)){   
+        //atribui as variaveis os valores informados pelo usuário
+        $meta_energia = $solicitacaoCalculo->valorKw;
+        $area_informada = $solicitacaoCalculo->areaInformada;
+        $valor_maximo =$solicitacaoCalculo->valorMaximo;
+
 
         //efetua o solver preliminar de cada painel
         $resultadoPlaca250 = resolverSolver($painel250, $meta_energia,$area_informada);
@@ -30,33 +30,31 @@
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada);
 
-        echo $resultadoPlaca250;
-        echo $resultadoPlaca270;
-        echo $resultadoPlaca325;
-        echo $resultadoPlaca330;
-
         //gera o inversor necessário
         $inversor = new Inversor($meta_energia);
 
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
         
+        $investimentoTotal = $inversor->preco + $melhorResultado->placaPrecoTotal;
+
         //gera o json de retorno para o javascript
         $saida = array(
-            'melhorResultado' => $melhorResultado,
-            'inversor' => $inversor
+            'painel' => $melhorResultado,
+            'inversor' => $inversor,
+            'investimentoTotal' => $investimentoTotal
         );
 
-        //envia os dados para o javascript
+        //envia os dados para o javascript  
         echo json_encode($saida);
 
-    // }else{
-    //     //caso dê erro envia json informando o erro
-    //     $saida = array(
-    //         'erro' => "Nao conseguiu ler a variavel"
-    //     );
-    //     echo json_encode($saida);
-    // }
+    }else{
+        //caso dê erro envia json informando o erro
+        $saida = array(
+            'erro' => "Nao conseguiu ler a variavel"
+        );
+        echo json_encode($saida);
+    }
     
     //funcao que efetua o solver enviando os dados para o script em python
     function resolverSolver($painelEscolhido,$meta_energia,$area_informada){
@@ -68,16 +66,16 @@
     //um monte de ifs, tenho que melhorar
     function verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330){
         
-        if(($resultadoPlaca250->precoTotalPaineis + $inversor->preco)< $valor_maximo){
+        if(($resultadoPlaca250->placaPrecoTotal + $inversor->preco)< $valor_maximo){
             return $resultadoPlaca250;
 
-        }else if(($resultadoPlaca270->precoTotalPaineis + $inversor->preco)< $valor_maximo){
+        }else if(($resultadoPlaca270->placaPrecoTotal + $inversor->preco)< $valor_maximo){
             return $resultadoPlaca270;
 
-        }else if(($resultadoPlaca325->precoTotalPaineis + $inversor->preco)< $valor_maximo){
+        }else if(($resultadoPlaca325->placaPrecoTotal + $inversor->preco)< $valor_maximo){
             return $resultadoPlaca325;
 
-        }else if(($resultadoPlaca330->precoTotalPaineis + $inversor->preco)< $valor_maximo){
+        }else if(($resultadoPlaca330->placaPrecoTotal + $inversor->preco)< $valor_maximo){
             return $resultadoPlaca330;
         }else {
             return "ERRO AO GERAR O RESULTADO";
