@@ -5,64 +5,147 @@ class Inversor{
     public $preco;
 
     function Inversor($escolha){
-        switch ($escolha) {
+        // para não perder tempo em transformar numeros float e contar até duas casas decimais, divido por 100 e verifico o numero inteiro
+        $escolha = $escolha / 100;
+        // com a funcao round eu escolho quantas casas mostrar após a virgula, nesse casso o q mostra nenhuma segundo o google
 
-            case '1.0':
+        $arredondada->arredondarVoltagemEscolha($escolha);
+        var_dump($arredondada);
+
+        switch (round($escolha,0)) {
+
+            case '10':
                 $this->preparaInversonUm();
                 break;
                 
-            case '1.5':
+            case '15':
                 $this->preparaInversonUmEMeio();
                 break;
             
-            case '2.0':
+            case '20':
                 $this->preparaInversonDois();
                 break;
                 
-            case '2.5':
+            case '25':
                 $this->preparaInversonDoisEMeio();
                 break;     
                 
-            case '3.0':
+            case '30':
                 $this->preparaInversonTres();
                 break;     
                 
-            case '4.0':
+            case '40':
                 $this->preparaInversonQuatro();
                 break;     
                 
-            case '5.0':
+            case '50':
                 $this->preparaInversonCinco();
-                break;     
-            case '6.0':
+                break;   
+
+            case '60':
                 $this->preparaInversonSeis();
-                break;     
-            case '8.0':
+                break;    
+
+            case '80':
                 $this->preparaInversonOito();
-                break;     
-            case '12.5':
+                break; 
+
+            case '125':
                 $this->preparaInversonDozeEMeio();
-                break;     
-            case '15.0':
+                break;    
+
+            case '150':
                 $this->preparaInversonQuinze();
-                break;     
-            case '20.0':
+                break;  
+
+            case '200':
                 $this->preparaInversonVinte();
-                break;     
-            case '100.0':
+                break;  
+
+            case '1000':
                 $this->preparaInversonCem();
-                break;     
-            case '1000.0':
+                break;    
+
+            case '10000':
                 $this->preparaInversonMil();
                 break;        
             
             default:
-                $this->ppreparaInversonUm();
+                $this->preparaInversonUm();
                 break;
         }
     }
 
-    private function ppreparaInversonUm(){
+    private function arredondarVoltagemEscolha($escolha){
+        
+        if($escolha < 0 ){
+            $escolha = 10;
+            return $escolha;
+            
+        }else if(($escolha > 0) && ($escolha < 11)){
+            $escolha = 10;
+            return $escolha;
+        
+        }else if(($escolha > 10) && ($escolha < 16)){
+            $escolha = 15;
+            return $escolha;
+        
+        }else if(($escolha > 15) && ($escolha < 21)){
+            $escolha = 20;
+            return $escolha;
+
+        }else if(($escolha > 20) && ($escolha < 26)){
+            $escolha = 25;
+            return $escolha;
+
+        }else if(($escolha > 25) && ($escolha < 31)){
+            $escolha = 30;
+            return $escolha;
+        
+        }else if(($escolha > 30) && ($escolha < 41)){
+            $escolha = 40;
+            return $escolha;
+        
+        }else if(($escolha > 40) && ($escolha < 51)){
+            $escolha = 50;
+            return $escolha;
+        
+        }else if(($escolha > 50) && ($escolha < 61)){
+            $escolha = 60;
+            return $escolha;
+        
+        }else if(($escolha > 50) && ($escolha < 61)){
+            $escolha = 60;
+            return $escolha;
+        
+        }else if(($escolha > 60) && ($escolha < 81)){
+            $escolha = 80;
+            return $escolha;
+        
+        }else if(($escolha > 80) && ($escolha < 126)){
+            $escolha = 125;
+            return $escolha;
+        
+        }else if(($escolha > 125) && ($escolha < 151)){
+            $escolha = 150;
+            return $escolha;
+        
+        }else if(($escolha > 150) && ($escolha < 201)){
+            $escolha = 200;
+            return $escolha;
+        
+        }else if(($escolha > 200) && ($escolha < 1001)){
+            $escolha = 1000;
+            return $escolha;
+        
+        }else if($escolha > 1000){
+            $escolha = 10000;
+            return $escolha;
+        
+        }
+    }
+
+    private function preparaInversonUm(){
         $this->potencia = "1";
         $this->descricao = "Inversor de 1kWp";
         $this->preco = "3000";

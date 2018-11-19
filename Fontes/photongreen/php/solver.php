@@ -11,7 +11,7 @@
     //cria as variaveis que serão utilizadas para guardar as constantes enviadas pelo usuário
     $valor_maximo = '200000';
     $area_informada = '200';
-    $meta_energia = '20000';
+    $meta_energia = '8800.12121121122121';
 
     // recebe as variaveis do javascript
     $solicitacaoCalculo = json_decode(file_get_contents("php://input"));
@@ -36,7 +36,7 @@
         echo $resultadoPlaca330;
 
         //gera o inversor necessário
-        $inversor = new Inversor($resultadoPlaca250->inversor);
+        $inversor = new Inversor($meta_energia);
 
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
@@ -63,15 +63,6 @@
         $solucao = shell_exec('python solver-python.py '.$painelEscolhido->preco.' '.$area_informada.' '.
                                 $painelEscolhido->tamanho_painel.' '.$meta_energia.' '.$painelEscolhido->potencia);
         return $solucao;
-    }
-
-    //melhorar essa funcao
-    function buscaInversorCorreto($voltagemInversor){
-        $voltagemInversor = $voltagemInversor / 1000;
-        
-        $inversor = new Inversor(round($voltagemInversor, 1));
-
-        return  $inversor;
     }
 
     //um monte de ifs, tenho que melhorar
