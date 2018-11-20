@@ -3,6 +3,8 @@ class Inversor{
     public $potencia;
     public $descricao;
     public $preco;
+    public $quantidade;
+    public $precoTotal;
 
     private function preparaInversonUm(){
         $this->potencia = "1";

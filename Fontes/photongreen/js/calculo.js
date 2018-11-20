@@ -16,7 +16,7 @@ app.controller('myCtrl', function($scope,$http) {
 
 	$scope.EfetuarCalculo = function(){ 
 		// verifica se os campos foram preenchidos
-		if ($scope.vlGastoMensalKw == '' || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
+		if ($scope.vlGastoMensalKw == undefined || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 
 			alert('Por favor preencha todos os campos.');
 

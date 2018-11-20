@@ -30,23 +30,26 @@
         $resultadoPlaca325Json = resolverSolver($painel325, $meta_energia,$area_informada);
         $resultadoPlaca330Json = resolverSolver($painel330, $meta_energia,$area_informada);
 
+        //aplica o encode de utf8
         $resultadoPlaca250Utf = utf8_encode($resultadoPlaca250Json);
         $resultadoPlaca270Utf = utf8_encode($resultadoPlaca270Json);
         $resultadoPlaca325Utf = utf8_encode($resultadoPlaca325Json);
         $resultadoPlaca330Utf = utf8_encode($resultadoPlaca330Json);
 
+        //efetua o decode
         $resultadoPlaca250 = json_decode($resultadoPlaca250Utf);
         $resultadoPlaca270 = json_decode($resultadoPlaca270Utf);
         $resultadoPlaca325 = json_decode($resultadoPlaca325Utf);
         $resultadoPlaca330 = json_decode($resultadoPlaca330Utf);
 
-
-        //gera o inversor necessário
-        $inversor = new Inversor($meta_energia);
-
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
         
+        //gera o inversor necessário
+        $inversor = new Inversor($meta_energia);
+        $inversor->quantidade = $melhorResultado->inversorQuantidade;
+        $inversor->precoTotal = $inversor->quantidade * $inversor->preco;
+
         $investimentoTotal = $inversor->preco + $melhorResultado->placaPrecoTotal;
 
         //gera o json de retorno para o javascript

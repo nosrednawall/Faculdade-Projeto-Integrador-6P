@@ -83,13 +83,14 @@
 					</div>
 					<hr>		
 					<div class="resultado">
-						<h4 class="tituloResultado">Inversor sugerido</h4>
+						<h4 class="tituloResultado">Inversor sugerido</h4>		
 						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo}}<br>
 						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo}}<br>
 						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado}}<br>
-						<label>Quantidade Recomendada</label> {{resposta.inversor.inversorQuantidade}}<br>
-						<label>Preço unitario estimado</label> {{resposta.inversor.inversorUnitario}}<br>
-						<label>Preço total estimado</label> {{resposta.inversor.inversorTotal}}<br>
+						<label>Descrição do inversor recomendado</label> {{resposta.inversor.descricao}}<br>
+						<label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade}}<br>
+						<label>Preço unitario estimado</label> {{resposta.inversor.preco}}<br>
+						<label>Preço total estimado</label> {{resposta.inversor.precoTotal}}<br>
 					</div>
 					<hr>
 					<div class="resultado">
