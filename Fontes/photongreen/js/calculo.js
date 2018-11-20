@@ -27,7 +27,7 @@ app.controller('myCtrl', function($scope,$http) {
 			var EficienciaPlaca = 0.80;
 			
 			//consumo diario em kwtsh
-			var valorkW = $scope.vlGastoMensalKw / 30;
+			var valorkW = $scope.vlGastoMensalKw / 301212;
 			valorkW = parseFloat(valorkW).toFixed(2);
 
 			//area informada ou disponivel
