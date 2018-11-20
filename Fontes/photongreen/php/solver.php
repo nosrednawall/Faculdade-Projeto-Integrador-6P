@@ -25,10 +25,21 @@
 
 
         //efetua o solver preliminar de cada painel
-        $resultadoPlaca250 = resolverSolver($painel250, $meta_energia,$area_informada);
-        $resultadoPlaca270 = resolverSolver($painel270, $meta_energia,$area_informada);
-        $resultadoPlaca325 = resolverSolver($painel325, $meta_energia,$area_informada);
-        $resultadoPlaca330 = resolverSolver($painel330, $meta_energia,$area_informada);
+        $resultadoPlaca250Json = resolverSolver($painel250, $meta_energia,$area_informada);
+        $resultadoPlaca270Json = resolverSolver($painel270, $meta_energia,$area_informada);
+        $resultadoPlaca325Json = resolverSolver($painel325, $meta_energia,$area_informada);
+        $resultadoPlaca330Json = resolverSolver($painel330, $meta_energia,$area_informada);
+
+        $resultadoPlaca250Utf = utf8_encode($resultadoPlaca250Json);
+        $resultadoPlaca270Utf = utf8_encode($resultadoPlaca270Json);
+        $resultadoPlaca325Utf = utf8_encode($resultadoPlaca325Json);
+        $resultadoPlaca330Utf = utf8_encode($resultadoPlaca330Json);
+
+        $resultadoPlaca250 = json_decode($resultadoPlaca250Utf);
+        $resultadoPlaca270 = json_decode($resultadoPlaca270Utf);
+        $resultadoPlaca325 = json_decode($resultadoPlaca325Utf);
+        $resultadoPlaca330 = json_decode($resultadoPlaca330Utf);
+
 
         //gera o inversor necessário
         $inversor = new Inversor($meta_energia);

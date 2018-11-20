@@ -78,18 +78,18 @@
 						<label>Potência</label> {{resposta.painel.placaPotencia}}<br>
 						<label>Quantidade</label> {{resposta.painel.placaQuantidade}}<br>
 						<label>Area de instalação necessária</label> {{resposta.painel.placaArea}}<br>
-						<label>Preço unitário estimado</label> {{resposta.placaPrecoUnitario}}<br>
-						<label>Preço total estimado</label> {{resposta.placaPrecoTotal}}<br>
+						<label>Preço unitário estimado</label> {{resposta.painel.placaPrecoUnitario}}<br>
+						<label>Preço total estimado</label> {{resposta.painel.placaPrecoTotal}}<br>
 					</div>
 					<hr>		
 					<div class="resultado">
 						<h4 class="tituloResultado">Inversor sugerido</h4>
-						<label>Potência mínima:</label> {{resposta.inversorMinimo}}<br>
-						<label>Potência máxima:</label> {{resposta.inversorMaximo}}<br>
-						<label>Potência Recomendado:</label> {{resposta.inversorRecomendado}}<br>
-						<label>Quantidade Recomendada</label> {{resposta.inversorQuantidade}}<br>
-						<label>Preço unitario estimado</label> {{resposta.inversorUnitario}}<br>
-						<label>Preço total estimado</label> {{resposta.inversorTotal}}<br>
+						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo}}<br>
+						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo}}<br>
+						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado}}<br>
+						<label>Quantidade Recomendada</label> {{resposta.inversor.inversorQuantidade}}<br>
+						<label>Preço unitario estimado</label> {{resposta.inversor.inversorUnitario}}<br>
+						<label>Preço total estimado</label> {{resposta.inversor.inversorTotal}}<br>
 					</div>
 					<hr>
 					<div class="resultado">
