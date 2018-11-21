@@ -25,22 +25,22 @@
 
 
         //efetua o solver preliminar de cada painel
-        $resultadoPlaca250Json = resolverSolver($painel250, $meta_energia_whatts,$area_informada);
-        $resultadoPlaca270Json = resolverSolver($painel270, $meta_energia_whatts,$area_informada);
-        $resultadoPlaca325Json = resolverSolver($painel325, $meta_energia_whatts,$area_informada);
-        $resultadoPlaca330Json = resolverSolver($painel330, $meta_energia_whatts,$area_informada);
+        $resultadoPlaca250 = resolverSolver($painel250, $meta_energia_whatts,$area_informada);
+        $resultadoPlaca270 = resolverSolver($painel270, $meta_energia_whatts,$area_informada);
+        $resultadoPlaca325 = resolverSolver($painel325, $meta_energia_whatts,$area_informada);
+        $resultadoPlaca330 = resolverSolver($painel330, $meta_energia_whatts,$area_informada);
 
-        //aplica o encode de utf8
-        $resultadoPlaca250Utf = utf8_encode($resultadoPlaca250Json);
-        $resultadoPlaca270Utf = utf8_encode($resultadoPlaca270Json);
-        $resultadoPlaca325Utf = utf8_encode($resultadoPlaca325Json);
-        $resultadoPlaca330Utf = utf8_encode($resultadoPlaca330Json);
+        // //aplica o encode de utf8
+        // $resultadoPlaca250Utf = utf8_encode($resultadoPlaca250Json);
+        // $resultadoPlaca270Utf = utf8_encode($resultadoPlaca270Json);
+        // $resultadoPlaca325Utf = utf8_encode($resultadoPlaca325Json);
+        // $resultadoPlaca330Utf = utf8_encode($resultadoPlaca330Json);
 
-        //efetua o decode
-        $resultadoPlaca250 = json_decode($resultadoPlaca250Utf);
-        $resultadoPlaca270 = json_decode($resultadoPlaca270Utf);
-        $resultadoPlaca325 = json_decode($resultadoPlaca325Utf);
-        $resultadoPlaca330 = json_decode($resultadoPlaca330Utf);
+        // //efetua o decode
+        // $resultadoPlaca250 = json_decode($resultadoPlaca250Utf);
+        // $resultadoPlaca270 = json_decode($resultadoPlaca270Utf);
+        // $resultadoPlaca325 = json_decode($resultadoPlaca325Utf);
+        // $resultadoPlaca330 = json_decode($resultadoPlaca330Utf);
 
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
@@ -74,7 +74,10 @@
     function resolverSolver($painelEscolhido,$meta_energia_whatts,$area_informada){
         $solucao = shell_exec('python solver-python.py '.$painelEscolhido->preco.' '.$area_informada.' '.
                                 $painelEscolhido->tamanho_painel.' '.$meta_energia_whatts.' '.$painelEscolhido->potencia);
-        return $solucao;
+        
+        $solucaoUtf = utf8_encode($solucao);
+        $solucaoDecode = json_decode($solucaoUtf);
+        return $solucaoDecode;
     }
 
     //um monte de ifs, tenho que melhorar
