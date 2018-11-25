@@ -2,6 +2,9 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function($scope,$http) {		
 
+	var classeAlertaBootstrapInicial = "alert";
+	var classeAlertaBootstrapScundaria = "alert-danger";
+
 	// estados
 	$scope.EstadosSG = [
 		{model: "PR", id: "1"}
@@ -15,9 +18,7 @@ app.controller('myCtrl', function($scope,$http) {
 	];	
 
 	$scope.EfetuarCalculo = function(){
-		var classeAlertaBootstrapInicial = "alert";
-		var classeAlertaBootstrapScundaria = "alert-danger";
-		var mostrarModal = false;
+
 
 		// verifica se os campos foram preenchidos
 		if ($scope.vlGastoMensalKw == undefined || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
@@ -29,11 +30,8 @@ app.controller('myCtrl', function($scope,$http) {
 			//limpa o array de erros quando inicia
 			var ul = document.querySelector("#mensagens-erro");
 			ul.innerHTML = "";
-			// ul.classList.remove(classeAlertaBootstrapInicial);
-			// ul.classList.remove(classeAlertaBootstrapScundaria);
-			trocaClasse(classeAlertaBootstrapInicial,classeAlertaBootstrapSecundaria," "," ");
-
-			// trocaClasse(ul,'alert alert-warning','');
+			//removendo o bootstrap desse elemento
+			removeClasse(ul,classeAlertaBootstrapInicial,classeAlertaBootstrapScundaria);
 
 			//eficiencia em 80%
 			var EficienciaPlaca = 0.80;
@@ -61,10 +59,9 @@ app.controller('myCtrl', function($scope,$http) {
 			//parte 2 valida os dados e efetua o solver
 
 			var erros = validaInputs(valorConsumidoAoDia,areaInformada,areaInformada,valorMaximo);
-
+	
 			if(	erros.length > 0){
 				exibeMensagensErro(erros);
-				mostrarModal = false;
 			}else{
 				$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
 			}
@@ -102,9 +99,7 @@ app.controller('myCtrl', function($scope,$http) {
 	function exibeMensagensErro(erros){
 		var ul = document.querySelector("#mensagens-erro");
 		ul.innerHTML = "";
-		trocaClasse(" "," ",classeAlertaBootstrapInicial,classeAlertaBootstrapSecundaria);
-		// ul.classList.add(classeAlertaBootstrapInicial);
-		// ul.classList.add(classeAlertaBootstrapSecundaria);
+		adicionaClasse(ul,classeAlertaBootstrapInicial,classeAlertaBootstrapScundaria);
 
 		erros.forEach(function(erro) {
 			var li = document.createElement("li");
@@ -112,12 +107,14 @@ app.controller('myCtrl', function($scope,$http) {
 			ul.appendChild(li);
 		});
 	}
-	
-	function trocaClasse(elemento, antigaInicial, antigaSecundaria,novaInicial,novaSecundaria) {
-		elemento.classList.remove(antigaInicial);
-		elemento.classList.remove(antigaSecundaria);
 
-		elemento.classList.add(novaInicial);
-		elemento.classList.add(novaSecundaria);
+	// autoexplicativo
+	function adicionaClasse(elemento,classeInicial,classeSecundaria){
+		elemento.classList.add(classeInicial);
+		elemento.classList.add(classeSecundaria);
+	}
+	function removeClasse(elemento,classeInicial,classeSecundaria){
+		elemento.classList.remove(classeInicial);
+		elemento.classList.remove(classeSecundaria);
 	}
 });

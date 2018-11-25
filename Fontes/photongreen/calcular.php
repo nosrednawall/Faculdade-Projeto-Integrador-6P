@@ -69,7 +69,7 @@
 	</section><!--/row -->
 
 	<!-- model que é invocado para mostrar a resposta ao clicar em calcular -->
-	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
+	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel && resposta">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
