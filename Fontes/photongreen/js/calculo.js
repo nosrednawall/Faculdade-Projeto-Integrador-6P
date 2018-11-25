@@ -58,7 +58,7 @@ app.controller('myCtrl', function($scope,$http) {
 			// ________________________________________________________________________
 			//parte 2 valida os dados e efetua o solver
 
-			var erros = validaInputs(valorConsumidoAoDia,areaInformada,areaInformada,valorMaximo);
+			var erros = validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo);
 	
 			if(	erros.length > 0){
 				exibeMensagensErro(erros);
@@ -91,6 +91,8 @@ app.controller('myCtrl', function($scope,$http) {
 		if(valorConsumidoAoDia < 1000) erros.push("Informe um valor de consumo mensal acima de 1000kwatts");
 		if(areaInformada < 10) erros.push("Informe uma área acima de 10 metros quadrados");
 		if(valorMaximo < 1000) erros.push("Valor mínimo de investimento é de R$ 1000,00");
+
+		alert(valorConsumidoAoDia + " " +areaInformada + " " +valorMaximo);
 
 		return erros;
 	}
