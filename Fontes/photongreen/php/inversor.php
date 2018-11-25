@@ -97,7 +97,7 @@ class Inversor{
         // $oi = arredondar($escolha);
         // com a funcao round eu escolho quantas casas mostrar após a virgula, nesse casso o q mostra nenhuma segundo o google
 
-        switch (round($escolha,0)) {
+        switch (round($escolha)) {
 
             case '10':
                 $this->preparaInversonUm();

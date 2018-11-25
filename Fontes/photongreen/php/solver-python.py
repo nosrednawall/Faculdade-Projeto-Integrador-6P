@@ -12,7 +12,6 @@ def main():
     solver = pywraplp.Solver('LinearExample', pywraplp.Solver.GLOP_LINEAR_PROGRAMMING)
 
     # Atribuindo valores recebidos em variaveis
-
     precoPainel = float(sys.argv[1])
     restricaoArea = float(sys.argv[2])
     tamanhoPainel = float(sys.argv[3])

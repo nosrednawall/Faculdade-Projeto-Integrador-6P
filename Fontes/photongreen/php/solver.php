@@ -23,24 +23,11 @@
         $area_informada = $solicitacaoCalculo->areaInformada;
         $valor_maximo =$solicitacaoCalculo->valorMaximo;
 
-
-        //efetua o solver preliminar de cada painel
+        //efetua o solver de cada painel
         $resultadoPlaca250 = resolverSolver($painel250, $meta_energia_whatts,$area_informada);
         $resultadoPlaca270 = resolverSolver($painel270, $meta_energia_whatts,$area_informada);
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia_whatts,$area_informada);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia_whatts,$area_informada);
-
-        // //aplica o encode de utf8
-        // $resultadoPlaca250Utf = utf8_encode($resultadoPlaca250Json);
-        // $resultadoPlaca270Utf = utf8_encode($resultadoPlaca270Json);
-        // $resultadoPlaca325Utf = utf8_encode($resultadoPlaca325Json);
-        // $resultadoPlaca330Utf = utf8_encode($resultadoPlaca330Json);
-
-        // //efetua o decode
-        // $resultadoPlaca250 = json_decode($resultadoPlaca250Utf);
-        // $resultadoPlaca270 = json_decode($resultadoPlaca270Utf);
-        // $resultadoPlaca325 = json_decode($resultadoPlaca325Utf);
-        // $resultadoPlaca330 = json_decode($resultadoPlaca330Utf);
 
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
