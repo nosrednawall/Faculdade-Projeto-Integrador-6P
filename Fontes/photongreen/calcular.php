@@ -98,7 +98,7 @@
 					</div>
 					<hr>
 					<div class="resultado">
-						<h4 class="tituloResultado">Total investimento: {{resposta.investimentoTotal | number : 2}}</h4>
+						<h4 class="tituloResultado">Total investimento:R$ {{resposta.investimentoTotal | number : 2}}</h4>
 					</div>	
 				</div>
 				<div class="modal-footer">

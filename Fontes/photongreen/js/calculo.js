@@ -19,7 +19,6 @@ app.controller('myCtrl', function($scope,$http) {
 
 	$scope.EfetuarCalculo = function(){
 
-
 		// verifica se os campos foram preenchidos
 		if ($scope.vlGastoMensalKw == undefined || $scope.areaDisponivel == undefined || $scope.capitalInformado == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 
@@ -36,14 +35,12 @@ app.controller('myCtrl', function($scope,$http) {
 
 			//parte 2 validando os inputs
 			var erros = validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo);
-	
+
 			if(	erros.length > 0){
 				exibeMensagensErro(erros);
 			}else{
-
 				//eficiencia em 80%
 				var EficienciaPlaca = 0.80;
-				
 				var tempoExposicao = $scope.nmCidade.incidencia;
 
 				//descobrindo a meta de watts que deve ser gerado
@@ -64,8 +61,7 @@ app.controller('myCtrl', function($scope,$http) {
 				valorMaximo = parseFloat(valorMaximo).toFixed(2);
 
 				// ________________________________________________________________________
-				//parte 2 valida os dados e efetua o solver
-
+				//parte 3  efetua o solver
 
 				$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
 			}
