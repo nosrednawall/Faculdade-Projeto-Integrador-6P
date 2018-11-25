@@ -21,9 +21,10 @@ app.controller('myCtrl', function($scope,$http) {
 
 
 		// verifica se os campos foram preenchidos
-		if ($scope.vlGastoMensalKw == undefined || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
+		if ($scope.vlGastoMensalKw == undefined || $scope.areaDisponivel == undefined || $scope.capitalInformado == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 
-			alert('Por favor preencha todos os campos.');
+			var erros = validaInputs(null,null,null);
+			exibeMensagensErro(erros);
 
 		}else{
 			//parte 1: preparando os dados
@@ -33,36 +34,39 @@ app.controller('myCtrl', function($scope,$http) {
 			//removendo o bootstrap desse elemento
 			removeClasse(ul,classeAlertaBootstrapInicial,classeAlertaBootstrapScundaria);
 
-			//eficiencia em 80%
-			var EficienciaPlaca = 0.80;
-
-			var tempoExposicao = $scope.nmCidade.incidencia;
-
-			//descobrindo a meta de watts que deve ser gerado
-			//primeiro multiplica por mil para tornar  kwatts em watts, e depois divide por 30 para coseguir a quantidade de consumo de um dia
-			var valorConsumidoAoDia = ($scope.vlGastoMensalKw * 1000 )/30;
-			valorConsumidoAoDia = parseFloat(valorConsumidoAoDia).toFixed(2);
-
-			//agora divide pela multiplicacao do tempo de exposiçao da placa e a eficiencia da placa, para conseguir a quantidade necessária para gerar em durante o período de exposicao do local
-			var potenciaTotalEmWatts = valorConsumidoAoDia / (tempoExposicao*EficienciaPlaca)
-			potenciaTotalEmWatts = parseFloat(potenciaTotalEmWatts).toFixed(2);
-
-			//area informada ou disponivel
-			var areaInformada = $scope.areaDisponivel;
-			areaInformada = parseFloat(areaInformada).toFixed(2);
-
-			//valor maximo de capital
-			var valorMaximo = $scope.capitalInformado;
-			valorMaximo = parseFloat(valorMaximo).toFixed(2);
-
-			// ________________________________________________________________________
-			//parte 2 valida os dados e efetua o solver
-
+			//parte 2 validando os inputs
 			var erros = validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo);
 	
 			if(	erros.length > 0){
 				exibeMensagensErro(erros);
 			}else{
+
+				//eficiencia em 80%
+				var EficienciaPlaca = 0.80;
+				
+				var tempoExposicao = $scope.nmCidade.incidencia;
+
+				//descobrindo a meta de watts que deve ser gerado
+				//primeiro multiplica por mil para tornar  kwatts em watts, e depois divide por 30 para coseguir a quantidade de consumo de um dia
+				var valorConsumidoAoDia = ($scope.vlGastoMensalKw * 1000 )/30;
+				valorConsumidoAoDia = parseFloat(valorConsumidoAoDia).toFixed(2);
+
+				//agora divide pela multiplicacao do tempo de exposiçao da placa e a eficiencia da placa, para conseguir a quantidade necessária para gerar em durante o período de exposicao do local
+				var potenciaTotalEmWatts = valorConsumidoAoDia / (tempoExposicao*EficienciaPlaca)
+				potenciaTotalEmWatts = parseFloat(potenciaTotalEmWatts).toFixed(2);
+
+				//area informada ou disponivel
+				var areaInformada = $scope.areaDisponivel;
+				areaInformada = parseFloat(areaInformada).toFixed(2);
+
+				//valor maximo de capital
+				var valorMaximo = $scope.capitalInformado;
+				valorMaximo = parseFloat(valorMaximo).toFixed(2);
+
+				// ________________________________________________________________________
+				//parte 2 valida os dados e efetua o solver
+
+
 				$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
 			}
 		}
@@ -87,13 +91,17 @@ app.controller('myCtrl', function($scope,$http) {
 	//função gera o array de erros que serão impressos na tela
 	function validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo){
 		var erros = [];
-		
-		if(valorConsumidoAoDia < 1000) erros.push("Informe um valor de consumo mensal acima de 1000kwatts");
-		if(areaInformada < 10) erros.push("Informe uma área acima de 10 metros quadrados");
-		if(valorMaximo < 1000) erros.push("Valor mínimo de investimento é de R$ 1000,00");
-
-		alert(valorConsumidoAoDia + " " +areaInformada + " " +valorMaximo);
-
+		if(valorConsumidoAoDia == undefined && areaInformada == undefined && valorMaximo == undefined){
+			if($scope.sgEstado == undefined) erros.push("Escolha um estado");
+			if($scope.nmCidade == undefined) erros.push("Escolha uma cidade");
+			if($scope.vlGastoMensalKw == undefined) erros.push("O valor de consumo mensal não pode ficar em branco");
+			if($scope.capitalInformado == undefined ) erros.push("O capital informado não pode ficar em branco");
+			if($scope.areaDisponivel == undefined) erros.push("A área disponível não pode ficar em branco");
+		}else{
+			if(valorConsumidoAoDia < 1000) erros.push("Informe um valor de consumo mensal acima de 1000kwatts");
+			if(areaInformada < 10) erros.push("Informe uma área acima de 10 metros quadrados");
+			if(valorMaximo < 1000) erros.push("Valor mínimo de investimento é de R$ 1000,00");
+		}
 		return erros;
 	}
 

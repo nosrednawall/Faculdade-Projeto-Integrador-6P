@@ -79,26 +79,26 @@
 				<div class="modal-body">
 					<div class="resultado">
 						<h4 class="tituloResultado">Placa Fotovoltaica sugerida</h4>
-						<label>Potência</label> {{resposta.painel.placaPotencia}}<br>
-						<label>Quantidade</label> {{resposta.painel.placaQuantidade}}<br>
-						<label>Area de instalação necessária</label> {{resposta.painel.placaArea}}<br>
-						<label>Preço unitário estimado</label> {{resposta.painel.placaPrecoUnitario}}<br>
-						<label>Preço total estimado</label> {{resposta.painel.placaPrecoTotal}}<br>
+						<label>Potência</label> {{resposta.painel.placaPotencia  | number : 0}}<br>
+						<label>Quantidade</label> {{resposta.painel.placaQuantidade | number : 1}}<br>
+						<label>Area de instalação necessária</label> {{resposta.painel.placaArea | number : 2}}<br>
+						<label>Preço unitário estimado</label> {{resposta.painel.placaPrecoUnitario | number : 2}}<br>
+						<label>Preço total estimado</label> {{resposta.painel.placaPrecoTotal | number : 2}}<br>
 					</div>
 					<hr>		
 					<div class="resultado">
 						<h4 class="tituloResultado">Inversor sugerido</h4>		
-						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo}}<br>
-						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo}}<br>
-						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado}}<br>
+						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo | number : 0}}<br>
+						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo | number : 0}}<br>
+						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado | number : 0}}<br>
 						<label>Descrição do inversor recomendado</label> {{resposta.inversor.descricao}}<br>
-						<label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade}}<br>
-						<label>Preço unitario estimado</label> {{resposta.inversor.preco}}<br>
-						<label>Preço total estimado</label> {{resposta.inversor.precoTotal}}<br>
+						<label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade | number : 1}}<br>
+						<label>Preço unitario estimado</label> {{resposta.inversor.preco | number : 2}}<br>
+						<label>Preço total estimado</label> {{resposta.inversor.precoTotal | number : 2}}<br>
 					</div>
 					<hr>
 					<div class="resultado">
-						<h4 class="tituloResultado">Total investimento: {{resposta.investimentoTotal}}</h4>
+						<h4 class="tituloResultado">Total investimento: {{resposta.investimentoTotal | number : 2}}</h4>
 					</div>	
 				</div>
 				<div class="modal-footer">
