@@ -14,7 +14,11 @@ app.controller('myCtrl', function($scope,$http) {
 
 	];	
 
-	$scope.EfetuarCalculo = function(){ 
+	$scope.EfetuarCalculo = function(){
+		var classeAlertaBootstrapInicial = "alert";
+		var classeAlertaBootstrapScundaria = "alert-danger";
+		var mostrarModal = false;
+
 		// verifica se os campos foram preenchidos
 		if ($scope.vlGastoMensalKw == undefined || $scope.vlGastoMensalKw == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
 
@@ -22,6 +26,14 @@ app.controller('myCtrl', function($scope,$http) {
 
 		}else{
 			//parte 1: preparando os dados
+			//limpa o array de erros quando inicia
+			var ul = document.querySelector("#mensagens-erro");
+			ul.innerHTML = "";
+			// ul.classList.remove(classeAlertaBootstrapInicial);
+			// ul.classList.remove(classeAlertaBootstrapScundaria);
+			trocaClasse(classeAlertaBootstrapInicial,classeAlertaBootstrapSecundaria," "," ");
+
+			// trocaClasse(ul,'alert alert-warning','');
 
 			//eficiencia em 80%
 			var EficienciaPlaca = 0.80;
@@ -46,10 +58,16 @@ app.controller('myCtrl', function($scope,$http) {
 			valorMaximo = parseFloat(valorMaximo).toFixed(2);
 
 			// ________________________________________________________________________
+			//parte 2 valida os dados e efetua o solver
 
-			//efetua o solver e imprime na tela
-			$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
+			var erros = validaInputs(valorConsumidoAoDia,areaInformada,areaInformada,valorMaximo);
 
+			if(	erros.length > 0){
+				exibeMensagensErro(erros);
+				mostrarModal = false;
+			}else{
+				$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
+			}
 		}
 	}
 	
@@ -67,5 +85,39 @@ app.controller('myCtrl', function($scope,$http) {
 		function(erro) { // optional
 			console.log("Falhou " + erro.data);
 		});
+	}
+
+	//função gera o array de erros que serão impressos na tela
+	function validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo){
+		var erros = [];
+		
+		if(valorConsumidoAoDia < 1000) erros.push("Informe um valor de consumo mensal acima de 1000kwatts");
+		if(areaInformada < 10) erros.push("Informe uma área acima de 10 metros quadrados");
+		if(valorMaximo < 1000) erros.push("Valor mínimo de investimento é de R$ 1000,00");
+
+		return erros;
+	}
+
+	// funcao recebe um array de erros e os adiciona no frontend dentro do elemento ul
+	function exibeMensagensErro(erros){
+		var ul = document.querySelector("#mensagens-erro");
+		ul.innerHTML = "";
+		trocaClasse(" "," ",classeAlertaBootstrapInicial,classeAlertaBootstrapSecundaria);
+		// ul.classList.add(classeAlertaBootstrapInicial);
+		// ul.classList.add(classeAlertaBootstrapSecundaria);
+
+		erros.forEach(function(erro) {
+			var li = document.createElement("li");
+			li.textContent = erro;
+			ul.appendChild(li);
+		});
+	}
+	
+	function trocaClasse(elemento, antigaInicial, antigaSecundaria,novaInicial,novaSecundaria) {
+		elemento.classList.remove(antigaInicial);
+		elemento.classList.remove(antigaSecundaria);
+
+		elemento.classList.add(novaInicial);
+		elemento.classList.add(novaSecundaria);
 	}
 });

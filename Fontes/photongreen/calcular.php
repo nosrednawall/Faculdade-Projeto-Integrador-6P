@@ -24,6 +24,9 @@
 			<h2>SIMULADOR SOLAR - CALCULADORA SOLAR FOTOVOLTAICA</h2>
 			<!-- os atributos que estiverem dentro de ng-model são os nomes das variáveis dentro angular -->
 			<form>
+				<div>
+					<ul id="mensagens-erro"></ul>
+				</div>
 				<!-- classe do bootstrap para grupos de formularios label e input -->
 				<div class="form-group">
 					<label for="estado-escolhido" class="descricao">Informe seu estado</label>			
@@ -55,7 +58,7 @@
 				</div>
 
 				<div class="row">
-					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#exampleModal">Calcular</button>
+					<button ng-click="EfetuarCalculo()" class="btn btn-success btn-lg col col-sm-4 col-xs-12" data-toggle="modal" data-target="#resultadosModal">Calcular</button>
 					<div class="col col-sm-4 col-xs-12"></div>
 					<input type="reset" value="Limpar" class="btn  btn-default btn-lg col col-sm-4 col-xs-12" >
 				</div>
@@ -66,7 +69,7 @@
 	</section><!--/row -->
 
 	<!-- model que é invocado para mostrar a resposta ao clicar em calcular -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
+	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
