@@ -19,6 +19,9 @@ def main():
     restricaoEnergia = float(sys.argv[4]) + (float(sys.argv[4]) * 0.25)
     potenciaPainel =  float(sys.argv[5])
 
+    # #Criando a restrição da quantidade minima de paineis
+    # qtdaMinimaPaineis = restricaoEnergia / potenciaPainel
+
     # cria as variaveis
     painel = solver.IntVar(-solver.infinity(), solver.infinity(), 'painel')
 
@@ -29,6 +32,10 @@ def main():
     # Segunda restricao : Energia a ser alcancada com os paineis
     constraint2 = solver.Constraint(-solver.infinity(),restricaoEnergia)
     constraint2.SetCoefficient(painel, potenciaPainel)
+
+    # # Terceira restricao : Quantidade minima de paineis
+    # constraint3 = solver.Constraint(qtdaMinimaPaineis,solver.infinity)
+    # constraint3.SetCoefficient(painel,constraint2)
       
     # Funcao Objetivo
     objective = solver.Objective()

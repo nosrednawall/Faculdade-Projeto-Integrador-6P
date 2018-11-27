@@ -63,6 +63,8 @@ app.controller('myCtrl', function($scope,$http) {
 				// ________________________________________________________________________
 				//parte 3  efetua o solver
 
+				console.log("potencia "+potenciaTotalEmWatts+" area "+areaInformada+ " valor " +valorMaximo);
+
 				$scope.Solver(potenciaTotalEmWatts,areaInformada,valorMaximo);
 			}
 		}
