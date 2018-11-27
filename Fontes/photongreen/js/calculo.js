@@ -34,7 +34,7 @@ app.controller('myCtrl', function($scope,$http) {
 			removeClasse(ul,classeAlertaBootstrapInicial,classeAlertaBootstrapScundaria);
 
 			//parte 2 validando os inputs
-			var erros = validaInputs(valorConsumidoAoDia,areaInformada,valorMaximo);
+			var erros = validaInputs($scope.vlGastoMensalKw,$scope.areaDisponivel,$scope.capitalInformado);
 
 			if(	erros.length > 0){
 				exibeMensagensErro(erros);
