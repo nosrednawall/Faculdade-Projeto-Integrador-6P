@@ -89,10 +89,10 @@
 					<hr>
 					<!-- resposta do modal para o inversor -->		
 					<div class="resultado">
-						<h4 class="tituloResultado">Inversor sugerido</h4>		
-						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo | number : 0}}<br>
+						<h4 class="tituloResultado">Inversor sugerido</h4>
+						<!-- <label>Potência mínima:</label> {{resposta.painel.inversorMinimo | number : 0}}<br>
 						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo | number : 0}}<br>
-						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado | number : 0}}<br>
+						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado | number : 0}}<br> -->
 						<label>Descrição do inversor recomendado</label> {{resposta.inversor.descricao}}<br>
 						<!-- <label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade | number : 1}}<br> -->
 						<label>Quantidade Recomendada</label> {{resposta.inversor.quantidade | number : 0}}<br>

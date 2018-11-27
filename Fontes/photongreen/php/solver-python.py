@@ -50,9 +50,9 @@ def main():
     areaUtilizadaPaineis = tamanhoPainel * painel.solution_value()
     energiaGeradaPeinel = potenciaPainel * painel.solution_value()
     quantidadePaineis = painel.solution_value()
-    inversorMinimo = restricaoEnergia  - (restricaoEnergia * 0.20)
-    inversorMaximo =  restricaoEnergia + (restricaoEnergia * 0.20)
-    inversorRecomendado = restricaoEnergia
+    inversorMinimo = (restricaoEnergia  - (restricaoEnergia * 0.20)/1000)
+    inversorMaximo =  (restricaoEnergia + (restricaoEnergia * 0.20)/1000)
+    inversorRecomendado = restricaoEnergia / 1000
 
 
     # gera o json com o resultado
