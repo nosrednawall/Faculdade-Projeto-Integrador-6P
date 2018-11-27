@@ -25,7 +25,7 @@
 			<!-- os atributos que estiverem dentro de ng-model são os nomes das variáveis dentro angular -->
 			<form>
 				<div>
-					<ul id="mensagens-erro"></ul>
+					<ul id="mensagens-erro" ng-model="erro"></ul>
 				</div>
 				<!-- classe do bootstrap para grupos de formularios label e input -->
 				<div class="form-group">
@@ -69,7 +69,7 @@
 	</section><!--/row -->
 
 	<!-- model que é invocado para mostrar a resposta ao clicar em calcular -->
-	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
+	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel && !erro">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -95,7 +95,7 @@
 						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado | number : 0}}<br>
 						<label>Descrição do inversor recomendado</label> {{resposta.inversor.descricao}}<br>
 						<!-- <label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade | number : 1}}<br> -->
-						<label>Quantidade Recomendada</label> {{resposta.inversor.quantidade | number : 1}}<br>
+						<label>Quantidade Recomendada</label> {{resposta.inversor.quantidade | number : 0}}<br>
 						<label>Preço unitario estimado</label> {{resposta.inversor.preco | number : 2}}<br>
 						<label>Preço total estimado</label> {{resposta.inversor.precoTotal | number : 2}}<br>
 					</div>

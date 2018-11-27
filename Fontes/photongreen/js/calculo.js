@@ -18,6 +18,7 @@ app.controller('myCtrl', function($scope,$http) {
 	];	
 
 	$scope.EfetuarCalculo = function(){
+		$scope.erro = false;
 
 		// verifica se os campos foram preenchidos
 		if ($scope.vlGastoMensalKw == undefined || $scope.areaDisponivel == undefined || $scope.capitalInformado == undefined || $scope.nmCidade == undefined || $scope.sgEstado == undefined){
@@ -37,6 +38,7 @@ app.controller('myCtrl', function($scope,$http) {
 			var erros = validaInputs($scope.vlGastoMensalKw,$scope.areaDisponivel,$scope.capitalInformado);
 
 			if(	erros.length > 0){
+				$scope.erro = true;
 				exibeMensagensErro(erros);
 			}else{
 				//eficiencia em 80%
