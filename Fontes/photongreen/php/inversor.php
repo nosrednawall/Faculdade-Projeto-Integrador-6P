@@ -90,6 +90,10 @@ class Inversor{
         $this->preco = "600000";
     }
 
+    // private function identificaQuantidadeInversor($metaEnergia,$potenciaInversor){
+    //     $quantidadeInversor = round($metaEnergia/$potenciaInversor);
+    //     return $quantidadeInversor;
+    // }
 
     function Inversor($escolha){
         // para não perder tempo em transformar numeros float e contar até duas casas decimais, divido por 100 e verifico o numero inteiro
@@ -159,6 +163,8 @@ class Inversor{
                 $this->preparaInversonUm();
                 break;
         }
+        $this->quantidade = "1";
+    //    $this->quantidade =  identificaQuantidadeInversor($escolha,$this->potencia);
     }
 
     // https://www.portalsolar.com.br/o-inversor-solar.html

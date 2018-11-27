@@ -94,7 +94,8 @@
 						<label>Potência máxima:</label> {{resposta.painel.inversorMaximo | number : 0}}<br>
 						<label>Potência Recomendado:</label> {{resposta.painel.inversorRecomendado | number : 0}}<br>
 						<label>Descrição do inversor recomendado</label> {{resposta.inversor.descricao}}<br>
-						<label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade | number : 1}}<br>
+						<!-- <label>Quantidade Recomendada</label> {{resposta.painel.inversorQuantidade | number : 1}}<br> -->
+						<label>Quantidade Recomendada</label> {{resposta.inversor.quantidade | number : 1}}<br>
 						<label>Preço unitario estimado</label> {{resposta.inversor.preco | number : 2}}<br>
 						<label>Preço total estimado</label> {{resposta.inversor.precoTotal | number : 2}}<br>
 					</div>

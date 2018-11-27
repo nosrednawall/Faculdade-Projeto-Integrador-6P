@@ -53,7 +53,6 @@ def main():
     inversorMinimo = restricaoEnergia  - (restricaoEnergia * 0.20)
     inversorMaximo =  restricaoEnergia + (restricaoEnergia * 0.20)
     inversorRecomendado = restricaoEnergia
-    inversorQuantidade = restricaoEnergia / energiaGeradaPeinel
 
 
     # gera o json com o resultado
@@ -66,8 +65,7 @@ def main():
       "placaEnergiaGerada":energiaGeradaPeinel,
       "inversorMinimo": inversorMinimo,
       "inversorMaximo": inversorMaximo,
-      "inversorRecomendado": inversorRecomendado,
-      "inversorQuantidade": inversorQuantidade
+      "inversorRecomendado": inversorRecomendado
     })
 
     #Envio da solucao para o PHP

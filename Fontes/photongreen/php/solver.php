@@ -34,7 +34,7 @@
         
         //gera o inversor necessário
         $inversor = new Inversor($meta_energia_whatts);
-        $inversor->quantidade = $melhorResultado->inversorQuantidade;
+        // $inversor->quantidade = $melhorResultado->inversorQuantidade;
         $inversor->precoTotal = $inversor->quantidade * $inversor->preco;
 
         $investimentoTotal = $inversor->preco + $melhorResultado->placaPrecoTotal;
