@@ -69,13 +69,14 @@
 	</section><!--/row -->
 
 	<!-- model que é invocado para mostrar a resposta ao clicar em calcular -->
-	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel && resposta">
+	<div class="modal fade" id="resultadosModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" ng-if="sgEstado && nmCidade && vlGastoMensalKw && areaDisponivel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h2 class="modal-title" id="exampleModalLabel">Resultado</h2>
 				</div>
+				<!-- resposta do modal para a placa -->
 				<div class="modal-body">
 					<div class="resultado">
 						<h4 class="tituloResultado">Placa Fotovoltaica sugerida</h4>
@@ -85,7 +86,8 @@
 						<label>Preço unitário estimado</label> {{resposta.painel.placaPrecoUnitario | number : 2}}<br>
 						<label>Preço total estimado</label> {{resposta.painel.placaPrecoTotal | number : 2}}<br>
 					</div>
-					<hr>		
+					<hr>
+					<!-- resposta do modal para o inversor -->		
 					<div class="resultado">
 						<h4 class="tituloResultado">Inversor sugerido</h4>		
 						<label>Potência mínima:</label> {{resposta.painel.inversorMinimo | number : 0}}<br>
@@ -97,6 +99,7 @@
 						<label>Preço total estimado</label> {{resposta.inversor.precoTotal | number : 2}}<br>
 					</div>
 					<hr>
+					<!-- resposta do modal final -->
 					<div class="resultado">
 						<h4 class="tituloResultado">Total investimento:R$ {{resposta.investimentoTotal | number : 2}}</h4>
 					</div>	

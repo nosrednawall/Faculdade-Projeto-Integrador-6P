@@ -79,6 +79,7 @@ app.controller('myCtrl', function($scope,$http) {
 		})
 		.then(function(response) {
 			//o que retornar será impresso na tela
+			console.log(response.data);
 			$scope.resposta =  response.data;
 		}, 
 		function(erro) { // optional

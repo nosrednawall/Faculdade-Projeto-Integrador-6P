@@ -19,7 +19,6 @@
     //verifica se a solicitacao não está vazia
     if(isset($solicitacaoCalculo) && !empty($solicitacaoCalculo)){   
         //atribui as variaveis os valores informados pelo usuário
-        var_dump($solicitacaoCalculo);
         $meta_energia_whatts = $solicitacaoCalculo->potenciaTotalEmWatts;
         $area_informada = $solicitacaoCalculo->areaInformada;
         $valor_maximo =$solicitacaoCalculo->valorMaximo;
@@ -29,8 +28,6 @@
         $resultadoPlaca270 = resolverSolver($painel270, $meta_energia_whatts,$area_informada);
         $resultadoPlaca325 = resolverSolver($painel325, $meta_energia_whatts,$area_informada);
         $resultadoPlaca330 = resolverSolver($painel330, $meta_energia_whatts,$area_informada);
-
-        var_dump($resultadoPlaca250);
 
         //verifica qual é o melhor resultado
         $melhorResultado = verificaQualEOAMelhorSolucao($valor_maximo,$inversor,$resultadoPlaca250,$resultadoPlaca270,$resultadoPlaca325,$resultadoPlaca330);
